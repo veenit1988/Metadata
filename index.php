@@ -72,9 +72,9 @@ $(document).ready(function(){
 		console.log(data);
 		}
 	});
-	$("input.editcollectionbtn").click(function()
-		
+$("input.editcollectionbtn").click(function(e)		
   {
+ e.preventDefault();
   alert('fffff');
   });
 });
