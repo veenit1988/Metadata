@@ -41,12 +41,6 @@ catch (shopify\ApiException $e)
 	print_r($e->getResponse());
 }
 ?>
-<script>
-function metaform(e) {
-   e.preventDefault();
-   alert("hi");
-}
-</script>
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
