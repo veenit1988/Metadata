@@ -9,7 +9,7 @@ try
 		if($collections){
 		echo '<form method="post" name="form" id="getproducts" action="#">';
 		echo '<table cellspacing="10" cellpadding="10" border="1">';
-		echo '<thead><tr><th></th><th>Collection Name</th><th>Content</th><th>Image</th></tr></thead>';
+		echo '<thead><tr><th></th><th>Collection Name</th><th>Image</th><th>Content</th></tr></thead>';
 			echo '<tbody>';
 		foreach($collections as $Allcollections) {
 				echo '<tr>';
@@ -17,7 +17,7 @@ try
 				echo '<td>'.$Allcollections['title'].'</td>';
 				echo '<td><img src="'.$Allcollections["image"]["src"].'" alt="collectionimage" /></td>';
 				echo '<td>'.$Allcollections['body_html'].'</td>';
-				echo '<td></td>';
+			
 			echo '</tr>';
 			
 			}
