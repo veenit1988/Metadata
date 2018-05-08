@@ -5,7 +5,7 @@ use phpish\shopify;
 $access_token = $_REQUEST['access_token'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
-{       $collections = $shopify('GET /admin/collects.json');
+{       $collections = $shopify('GET /admin/custom_collections.json');
 		if($collections){
 		echo '<form method="post" name="form" id="getproducts" action="#">';
 		echo '<table cellspacing="10" cellpadding="10" border="1">';
