@@ -41,3 +41,9 @@ catch (shopify\ApiException $e)
 	print_r($e->getResponse());
 }
 ?>
+<script>
+function metaform(e) {
+   e.preventDefault();
+   alert("hi");
+}
+</script>
