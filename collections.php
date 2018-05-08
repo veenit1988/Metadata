@@ -81,3 +81,8 @@ catch (shopify\ApiException $e)
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<script>
+	$('#myModal').on('show.bs.modal', function (e) {
+  if (!data) return e.preventDefault() // stops modal from being shown
+})
+</script>
