@@ -73,5 +73,12 @@ $(document).ready(function(){
 	});
 });
 </script>	
+	<script>
+		$("#collectiondataid").click(function(){
+ if($(this).is(":checked")) {
+   alert($(this).val());     
+   }
+});
+	</script>
 </body>
 </html>
