@@ -72,11 +72,10 @@ $(document).ready(function(){
 		console.log(data);
 		}
 	});
-function metaform(e)		
-  {
- e.preventDefault();
-  alert('fffff');
-  });
+	function metaform(e) {
+   e.preventDefault();
+   alert("hi");
+}
 });
 </script>	
 	
