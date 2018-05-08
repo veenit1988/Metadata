@@ -15,7 +15,7 @@ try
 		
 		{
 			echo '<tr>';
-			echo '<td><input type="checkbox" name="product_ids[id]" value="'.$Allcollections["id"].'" data-pro-handle="'.$Allcollections["handle"].'" /></td>';
+			echo '<td><input id="collectiondataid" type="checkbox" name="product_ids[id]" value="'.$Allcollections["id"].'" data-pro-handle="'.$Allcollections["handle"].'" /></td>';
 			echo '<td>'.$Allcollections['title'].'</td>';
 			echo '<td><img src="'.$Allcollections["image"]["src"].'" alt="collectionimage" /></td>';
 			echo '<td>'.$Allcollections['body_html'].'</td>';
