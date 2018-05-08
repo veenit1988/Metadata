@@ -6,7 +6,7 @@ $access_token = $_REQUEST['access_token'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {		
-		$response = $shopify('GET /admin/metafields.json');
+		$response = $shopify('GET /admin/collections/metafields.json');
 		$revisebutton = ''; $automanualfield = '';
 		foreach($response as $options){
 			if($options['namespace'] == 'revisebutton'){
