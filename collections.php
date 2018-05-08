@@ -16,9 +16,9 @@ try
 		
 		
 		foreach($collections as $Allcollections) {
-				echo '<tr><td><input type="checkbox" name="product_ids[]" value="'.$$Allcollections["id"].'" data-pro-handle="'.$$Allcollections["handle"].'" /></td>';
-				echo '<td>'.$$Allcollections['title'].'</td>';
-				echo '<td>'.$$Allcollections['body_html'].'</td>';
+				echo '<tr><td><input type="checkbox" name="product_ids[]" value="'.$Allcollections["id"].'" data-pro-handle="'.$$Allcollections["handle"].'" /></td>';
+				echo '<td>'.$Allcollections['title'].'</td>';
+				echo '<td>'.$Allcollections['body_html'].'</td>';
 				echo '<td><img src="'.$Allcollections["image"]["src"].'" alt="collectionimage" /></td></tr>';
 			}
 		
