@@ -12,16 +12,15 @@ try
 		echo '<thead><tr><th></th><th>Collection Name</th><th>Image</th><th>Content</th></tr></thead>';
 			echo '<tbody>';
 		foreach($collections as $Allcollections)
-		$i = 0; 
-		{?>
-				<tr id='<?php echo "$i"; ?>'>
-			<?php	echo '<td><input type="checkbox" name="product_ids[id]" value="'.$Allcollections["id"].'" data-pro-handle="'.$Allcollections["handle"].'" /></td>';
-				echo '<td>'.$Allcollections['title'].'</td>';
-				echo '<td><img src="'.$Allcollections["image"]["src"].'" alt="collectionimage" /></td>';
-				echo '<td>'.$Allcollections['body_html'].'</td>';
-			
+		
+		{
+			echo '<tr>';
+			echo '<td><input type="checkbox" name="product_ids[id]" value="'.$Allcollections["id"].'" data-pro-handle="'.$Allcollections["handle"].'" /></td>';
+			echo '<td>'.$Allcollections['title'].'</td>';
+			echo '<td><img src="'.$Allcollections["image"]["src"].'" alt="collectionimage" /></td>';
+			echo '<td>'.$Allcollections['body_html'].'</td>';
 			echo '</tr>';
-			$i++;
+			
 			}
 		echo '<tr><td colspan="5"><input type="button" class="saveproducts" value="Button" name="submit" /></td></tr></tbody>';
 		echo '</table>';
