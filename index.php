@@ -59,6 +59,7 @@ function addScript(options){
 	});
 }	
 $(document).ready(function(){
+	alert('1');
 	var access_token = '<?php echo $access_token ?>';
 	var shop = '<?php echo $_REQUEST['shop'] ?>';
 	var server = '<?php echo $_SERVER['SERVER_NAME']; ?>';
