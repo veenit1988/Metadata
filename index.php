@@ -71,8 +71,6 @@ $(document).ready(function(){
 			console.log(data);
 		}
 	});
-	
-			$(".editcollectionbtn").click(function(){alert('fffff');}
 });
 </script>	
 	
