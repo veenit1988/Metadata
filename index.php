@@ -72,7 +72,7 @@ $(document).ready(function(){
 		console.log(data);
 		}
 	});
-$("input.editcollectionbtn").click(function(e)		
+function metaform(e)		
   {
  e.preventDefault();
   alert('fffff');
