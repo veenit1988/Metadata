@@ -73,9 +73,7 @@ $(document).ready(function(){
 		}
 	});
 	$("input.editcollectionbtn").click(function()
-		var access_token = '<?php echo $access_token ?>';
-		var shop = '<?php echo $_REQUEST['shop'] ?>';
-		var collectionid = escape($('#colid').val());
+		
   {
   alert('fffff');
   });
