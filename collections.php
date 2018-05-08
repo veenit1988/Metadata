@@ -7,8 +7,9 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 try
 {
 	      
-			$products = $shopify('GET /admin/products.json');
-			if($products){
+			$products = $shopify('GET /admin/collections.json');
+	print_r($products);
+			/*if($products){
 			echo '<form method="post" name="form" id="getproducts" action="#">';
 			echo '<table cellspacing="10" cellpadding="10" border="1">';
 			echo '<thead><tr><th></th><th>Product Name</th><th>Content</th><th>Brand</th><th>Image</th></tr></thead>';
@@ -23,7 +24,7 @@ try
 			echo '<tr><td colspan="5"><input type="button" class="saveproducts" value="Show button on Product Page" name="submit" /></td></tr></tbody>';
 			echo '</table>';
 			 echo '</form>';
-			}
+			}*/
 	else{
 	echo "<div class='no-result'>No Products</div>";
 	}
