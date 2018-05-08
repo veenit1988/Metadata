@@ -57,8 +57,7 @@ function addScript(options){
 			}
 		}
 	});
-}
-	
+}	
 $(document).ready(function(){
 	var access_token = '<?php echo $access_token ?>';
 	var shop = '<?php echo $_REQUEST['shop'] ?>';
@@ -68,8 +67,7 @@ $(document).ready(function(){
 		url: '/collections.php?access_token='+access_token+'&shop='+shop,
 		dataType: "html",
 		success: function(data) { 
-			   $("#settings").html(data);
-			console.log(data);
+		$("#settings").html(data);
 		}
 	});
 });
