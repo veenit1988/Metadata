@@ -17,7 +17,7 @@ try
 				echo '<td>'.$Allcollections['body_html'].'</td>';
 				echo '<td><img src="'.$Allcollections["image"]["src"].'" alt="collectionimage" /></td></tr>';
 			}
-		echo '<tr><td colspan="5"><input type="button" class="saveproducts" value="Show button on Product Page" name="submit" /></td></tr></tbody>';
+		echo '<tr><td colspan="5"><input type="button" class="saveproducts" value="Button" name="submit" /></td></tr></tbody>';
 		echo '</table>';
 	 echo '</form>';
 	
