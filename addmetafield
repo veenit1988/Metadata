@@ -1,0 +1,12 @@
+<form method="post" name="form" id="metafield" action="#">
+<div class="meatfield">
+<textarea rows="4" cols="50" id="beforecollection">
+At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+</textarea>
+</div>
+<div class="meatfield">
+<textarea rows="4" cols="50" id="aftercollection">
+At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+</textarea>
+</div>
+</form>
