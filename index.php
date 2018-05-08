@@ -71,14 +71,12 @@ $(document).ready(function(){
 			console.log(data);
 		}
 	});
-});
-</script>	
-	<script>
-		$(document).ready(function(){
-		$(".editcollectionbtn").click(function(){
+	$(".editcollectionbtn").click(function()
+	 {
    alert('hhhh');     
    }
 });
-	</script>
+</script>	
+	
 </body>
 </html>
