@@ -68,6 +68,7 @@ $(document).ready(function(){
 		dataType: "html",
 		success: function(data) { 
 		$("#settings").html(data);
+			console.log(data);
 		}
 	});
 });
