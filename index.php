@@ -36,19 +36,7 @@ $server = 'https://'.$_SERVER['SERVER_NAME'];
 	<h1 class="title">Welcome to Collection page customize APP</h1>
 	<div id="main-container">
 		<div id="settings">
-			<div class="css-section">
-				<div class="customcss">
-					<form method="post" name="cssform" id="addcustomcss" action="#">
-						<div class="css_code_outer">
-							<h3 class="css_title">Custom CSS</h3>
-							<div class="css_body">
-								<textarea id="add_css" name="add_css" placeholder="/*****Custom CSS*****/"></textarea>
-								<input type="button" class="savecss" value="Save CSS" name="submit" />
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
+			
 		</div>	
 	</div>
 </div> 
@@ -70,37 +58,18 @@ function addScript(options){
 		}
 	});
 }
-// Add CSS
-function fetchCssCode(){
-	var access_token = '<?php echo $access_token ?>';
-	var shop = '<?php echo $_REQUEST['shop'] ?>';
-	$.ajax({
-		url: '/getCSSfile.php?access_token='+access_token+'&shop='+shop,
-		success: function(response){
-			$('#add_css').val(response);
-		}
-	});
-}
-	
 	
 $(document).ready(function(){
-	fetchCssCode();
-	//Save Custom CSS
-	$('body').on('click', '.savecss', function(e){
-		var _this = $(this);
-		var access_token = '<?php echo $access_token ?>';
-		var shop = '<?php echo $_REQUEST['shop'] ?>';
-		var csscode = escape($('#add_css').val());
-		$.ajax({
-			type: 'POST',
-			url: '/AddCssFile.php?access_token='+access_token+'&shop='+shop+'&cssCode='+csscode,
-			dataType: "html",
-			success: function(data) { 
-				console.log(data);
-				_this.after('<p class="css_success_msg">CSS code successfully updated!</p>');
-				$('body .css_success_msg').fadeOut(2000);
-			}
-		});
+	var access_token = '<?php echo $access_token ?>';
+	var shop = '<?php echo $_REQUEST['shop'] ?>';
+	var server = '<?php echo $_SERVER['SERVER_NAME']; ?>';
+	$.ajax({
+		type: 'POST',
+		url: '/collections.php?access_token='+access_token+'&shop='+shop,
+		dataType: "html",
+		success: function(data) { 
+			console.log(data);
+		}
 	});
 });
 </script>	
