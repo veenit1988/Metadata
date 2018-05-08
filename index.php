@@ -68,6 +68,7 @@ $(document).ready(function(){
 		url: '/collections.php?access_token='+access_token+'&shop='+shop,
 		dataType: "html",
 		success: function(data) { 
+			   $("#settings").html(data);
 			console.log(data);
 		}
 	});
