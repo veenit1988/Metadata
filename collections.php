@@ -19,7 +19,7 @@ try
 			echo '<td>'.$Allcollections['title'].'</td>';
 			echo '<td><img src="'.$Allcollections["image"]["src"].'" alt="collectionimage" /></td>';
 			echo '<td>'.$Allcollections['body_html'].'</td>';
-			echo '<td>'.'<input type="button" class="editcollectionbtn" value="add field" />'.'</td>';
+			echo '<td>'.'<input type="button" class="editcollectionbtn" value="add field" onclick="metaform(event);"/>'.'</td>';
 			echo '</tr>';
 			
 			}
