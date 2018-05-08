@@ -7,8 +7,8 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 try
 {
 	      
-			$products = $shopify('GET /admin/collections.json');
-	print_r($products);
+	$collections = $shopify('GET /admin/collections.json');
+	print_r($collections);
 			
 }
 catch (shopify\ApiException $e)
