@@ -79,7 +79,6 @@ $(document).ready(function(){
    alert('hhhh');     
    }
 });
-		});
 	</script>
 </body>
 </html>
