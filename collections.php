@@ -44,7 +44,7 @@ catch (shopify\ApiException $e)
 }
 ?>
 <script>
-	function openSolution() {
+	function openmetafield() {
     alert('here');
     $('.collectionid').click(function(e) {
         e.preventDefault();
