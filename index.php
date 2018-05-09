@@ -74,10 +74,12 @@ function addScript(options){
 		}
 	});
 });
-$('.collectionbtn').on('click', function(event) {
-  event.preventDefault(); // To prevent following the link (optional)
-alert(1);
-});
+	$('.collectionbtn').on('click', function (e) {
+
+  alert(1);
+
+})
+
 </script>	
 
 </body>
