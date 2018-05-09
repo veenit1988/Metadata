@@ -61,7 +61,8 @@ function openmetafield() {
 		type: 'POST',
 	   url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+collectionid+'&options='+Arraydata,
 		success: function(data) { 
-		console.log(data);
+		alert(data);
+		//console.log(data);
 		}
 	});
 	});
