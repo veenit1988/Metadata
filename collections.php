@@ -48,7 +48,8 @@ function openmetafield() {
   
     $('.collectionid').click(function(e) {
         e.preventDefault();
-		 alert($('a.collectionid').attr("a.collectionid data-id"));
+	    alert("dd");
+		 alert($("a.collectionid").attr("a.collectionid data-id"));
          });
 }	
 	
