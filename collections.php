@@ -60,7 +60,7 @@ function openmetafield() {
 	
 	 $.ajax({
 		type: 'POST',
-		url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&options='+Arraydata,
+		url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+collectionid+'&options='+Arraydata,
 		dataType: "html",
 		success: function(responsecollection) { 
 			console.log(responsecollection);
