@@ -20,11 +20,11 @@ try
 		echo '<td>'.$Allcollections['body_html'].'</td>';
 		echo '<td>'.'<textarea class="form-control" id="col-metafield1" name="sel_options[]"></textarea>'.'</td>';
 		echo '<td>'.'<textarea class="form-control" id="col-metafield2" name="sel_options[]"></textarea>'.'</td>';
-		echo '<td>'.'<a href="#"   onClick = "openmetafield();"  class="collectionid" data-id="'.$Allcollections["id"].'">Add Metafield</a>'.'</td>';
+		echo '<td>'.'<input type="button" class="collectionSave" value="Add Collection Data" name="addColData" data-id="'.$Allcollections["id"].'"></td>';
 		echo '</tr>';
 
 		}
-	echo '<tr><td colspan="5"><input type="button" class="saveproducts" value="Button" name="submit" /></td></tr></tbody>';
+	echo '</tbody>';
 	echo '</table>';
  echo '</form>';
 }
