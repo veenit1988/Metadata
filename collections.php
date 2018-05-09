@@ -27,7 +27,6 @@ try
 	echo '<tr><td colspan="5"><input type="button" class="saveproducts" value="Button" name="submit" /></td></tr></tbody>';
 	echo '</table>';
  echo '</form>';
-
 }
 else{
 echo "<div class='no-result'>No collections</div>";
