@@ -47,9 +47,9 @@ catch (shopify\ApiException $e)
 function openmetafield() {
  $('.collectionid').click(function(e) {
 	 var meta1 = $("#col-metafield1").val();
-	 alert(meta1);
+	
 	 var meta2 = $("#col-metafield2").val();
-	 alert(meta2);
+
 	var access_token = '<?php echo $access_token ?>';
 	var shop = '<?php echo $_REQUEST['shop'] ?>';
 	var Arraydata = [];
