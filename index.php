@@ -74,32 +74,11 @@ function addScript(options){
 		}
 	});
 });
-$('.collectionbtn').click(function() 
-{
+$('.collectionbtn').on('click', function(event) {
+  event.preventDefault(); // To prevent following the link (optional)
 alert(1);
-    var book_id = $(this).parent().data('id'),
-    result = "Book #" + book_id + " has been reserved.";
-
-    $.ajax
-    ({ 
-        url: 'reservebook.php',
-        data: "book_id="+book_id,
-        type: 'post',
-        success: function()
-        {
-            $('.modal-box').text(result).fadeIn(700, function() 
-            {
-                setTimeout(function() 
-                {
-                    $('.modal-box').fadeOut();
-                }, 2000);
-            });
-        }
-    });
-});	
-	
-	
+});
 </script>	
-	
+
 </body>
 </html>
