@@ -27,7 +27,7 @@ if( $meta1 !== '' || $meta2 !== '' )
 	$metafield2 = array( "metafield" => array('namespace' => 'lowercollectionmeta', 'key' => 'lowercollectiondata', 'value' => $meta2,
 	'value_type' => 'string'));
 	}
-	$response = $shopify('POST /admin/collections/' + $collectionid + '/metafields.json',$metafield1,$metafield2);
+	$response = $shopify('POST /admin/collections/' + $collectionid + '/metafields.json',$metafield1+$metafield2);
 	
 	echo $response['value'].'==='.$response_auto_manual['value'];
 	
