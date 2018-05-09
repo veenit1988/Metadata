@@ -21,10 +21,12 @@ $smartcollection=$shopify('GET /admin/smart_collections.json');
 		echo '<td>'.'<textarea class="form-control" id="col-metafield1" name="upperData[]">'.$Allcollections['body_html'].'</textarea>'.'</td>';
 		echo '<td>'.'<textarea class="form-control" id="col-metafield2" name="lowerData[]"></textarea>'.'</td>';
 		echo '<td>'.'<input type="button" class="collectionSave" value="Add Collection Data" name="addColData" data-id="'.$Allcollections["id"].'"></td>';
+		echo '</tr>';
+
 		}
 	foreach($smartcollection as $smartcollections)
 	{
-
+		echo '<tr>';
 		echo '<td>'.$smartcollections['title'].'</td>';
 		echo '<td><img src="'.$smartcollections["image"]["src"].'" alt="collectionimage" /></td>';
 		echo '<td>'.'<textarea class="form-control" id="col-metafield1" name="upperData[]">'.$smartcollections['body_html'].'</textarea>'.'</td>';
