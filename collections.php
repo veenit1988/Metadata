@@ -67,10 +67,7 @@ function openmetafield() {
 		dataType: "html",
 		success: function(data) { 
 			alert(data);
-			if(data){
-				addScript(data);
 			}
-		}
 	});
 	
 	});
