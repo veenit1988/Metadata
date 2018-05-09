@@ -49,16 +49,17 @@ function openmetafield() {
     $('.collectionid').click(function(e) {
         e.preventDefault();
 	      
-	    	var collectionid = $(this).attr("data-id");
-	    alert(collectionid);
-	    $.ajax({
-            url: '/admin/collections/collectionid/metafields.json',
-            data: {
-                text: $("textarea[name=Status]").val(),
-                Status: Status
-            },
-            dataType : 'json'
-        });
+	    var collectionid = $(this).attr("data-id");
+	   $.ajax({
+		type: 'POST',
+	     url: 'POST /admin/collections/' + pageid + '/metafields.json',
+		dataType: "html",
+		success: function(data) { 
+		/* $("#settings").html(data);*/ 
+		console.log(data);
+		}
+	});
+	 
 		
 	    
          });
