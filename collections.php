@@ -21,7 +21,7 @@ try
 			echo '<td>'.$Allcollections['body_html'].'</td>';
 			echo '<td>'.'<textarea class="form-control" id="metafield1-text" name="sel_options[]"></textarea>'.'</td>';
 			echo '<td>'.'<textarea class="form-control" id="metafield2-text" name="sel_options[]"></textarea>'.'</td>';
-			echo '<td>'.'<button type="button" class="btn btn-primary collectionbtn">Add Metafield</button>'.'</td>';
+			echo '<td>'.'<a href="#" id="'.$Allcollections["id"].'">Add Metafield</a>'.'</td>';
 			echo '</tr>';
 			
 			}
