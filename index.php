@@ -56,7 +56,20 @@ $.ajax({
 	}
 });
 }	
-
+function fetchMetafield(){
+	console.log('fetch Metafield');
+	var access_token = '<?php echo $access_token ?>';
+	var shop = '<?php echo $_REQUEST['shop'] ?>';
+	$.ajax({
+		url: '/getmetafields.php?access_token='+access_token+'&shop='+shop,
+		success: function(data){
+			if(data){
+			var collectionoptions = data.split(',');
+			console.log(collectionoptions);
+			}
+		}
+	});
+}
 $(document).ready(function(){
 var access_token = '<?php echo $access_token ?>';
 var shop = '<?php echo $_REQUEST['shop'] ?>';
