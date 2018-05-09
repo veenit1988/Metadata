@@ -7,8 +7,7 @@ require __DIR__.'/connection.php'; //DB connectivity
 require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
 // Required File END...........
-error_reporting(E_ALL);
- //print_r($_SESSION); 
+error_reporting(E_ALL); 
 ini_set('display_errors', 1);
 if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']!='' && $_REQUEST['code']!='' )
 {
@@ -16,79 +15,49 @@ if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']
 	$_SESSION['code']=$_REQUEST['code'];
 }
 $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_REQUEST['code']);
+$server = 'https://'.$_SERVER['SERVER_NAME'];
 ?>
 <html>
 <head>
- <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700" rel="stylesheet"> 
- <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-<script src="https://use.fontawesome.com/988a7dc35f.js"></script>
-<link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  rel="stylesheet" type="text/css"/>  
-<link href="style.css" rel="stylesheet" type="text/css"/>
- </head>
- <body>
-<h2>Hello welcome to my app</h2>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/988a7dc35f.js"></script>
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  rel="stylesheet" type="text/css"/>  
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="logo">
+	<h2>APP Logo</h2>
+</div>
 <div class="content-container">
-	<div class="options">
-	<form method="post" name="form" id="getoptions" action="#">
-		<table cellspacing="10" cellpadding="10" border="1">
-			<thead>
-				<tr>
-				<th></th><th>Options</th><th>Class name</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr><td><input id="product_page" type="checkbox" name="sel_options[]" value="product_page" /></td>
-					<td><label for="product_page">Product Page</label></td>
-					<td><input id="product_page_class" type="text" name="product_page_class" value="" /></td>
-				</tr>
-				<tr><td><input id="catalog_page" type="checkbox" name="sel_options[]" value="catalog_page" /></td>
-					<td><label for="catalog_page">Catalog Page</label></td>
-					<td><input id="catalog_page_class" type="text" name="catalog_page_class" value="" /></td>
-				</tr>
-				<tr><td colspan="3">Do you want to add Resev button Automatic or Manual ?</td></tr>
-				<tr>
-					<td></td>
-					<td><label for="automatic_code">Automatic</label>
-					<input id="automatic_code" type="radio" name="automatic_manual_code" value="automatic_code" /></td>
-					<td><label for="manual_code">Manual</label>
-					<input id="manual_code" type="radio" name="automatic_manual_code" value="manual_code" /></td>
-				</tr>
-				<tr><td colspan="3"><textarea style="display:none;" class="generate_code" id="generate_code" name="generate_code"></textarea></td></tr>
-				<tr>
-				<td colspan="3"><input type="button" class="saveoptions" value="Show Reserv button" name="submit" /></td>
-				</tr>
-			</tbody>
-		</table>
-	</form>
+	<h1 class="title">Welcome to Collection page customize APP</h1>
+	<div id="main-container">
+		<div id="settings">
+			
+		</div>	
 	</div>
-	
-	<div class="customcss">
-	<form method="post" name="cssform" id="addcustomcss" action="#">
-		<table cellspacing="10" cellpadding="10" border="1">
-			<thead><tr><th>Custom CSS</th></tr></thead>
-			<tbody>
-			<tr><td><textarea id="add_css" name="add_css" placeholder="/*****Custom CSS*****/"></textarea></td></tr>
-			<tr><td><input type="button" class="savecss" value="Save CSS" name="submit" /></td></tr>
-			</tbody>
-		</table>
-	</form>
-	</div>
-	
 </div> 
 <script>
 // Add Script
-function addScript(options){ 
-	console.log('Add Script');
+function addScript(options){
 	var access_token = '<?php echo $access_token ?>';
 	var shop = '<?php echo $_REQUEST['shop'] ?>';
+	var server = '<?php echo $_SERVER['SERVER_NAME']; ?>';
 	$.ajax({
-		url: '/addScript.php?access_token='+access_token+'&shop='+shop+'&options='+options,
+		url: '/addScript.php?access_token='+access_token+'&shop='+shop+'&options='+options+'&server='+server,
 		success: function(data){
 			console.log(data);
+			if($("#manual_code").is(':checked')){
+				$('#generate_code').show().val(data);
+			} else if($("#automatic_code").is(':checked')){
+				$('#generate_code').hide().val(" ");
+			}
 		}
 	});
-}
-// fetch Metafields
+}	
 function fetchMetafield(){
 	console.log('fetch Metafield');
 	var access_token = '<?php echo $access_token ?>';
@@ -116,66 +85,25 @@ function fetchMetafield(){
 		}
 	});
 }
-function fetchCssCode(){
-	console.log('fetch Metafield');
+	$(document).ready(function(){
+	
 	var access_token = '<?php echo $access_token ?>';
 	var shop = '<?php echo $_REQUEST['shop'] ?>';
-	$.ajax({
-		url: '/getCSSfile.php?access_token='+access_token+'&shop='+shop,
-		success: function(response){
-			$('#add_css').val(response);
-		}
-	});
-}
-$(document).ready(function(){
-	
-	$('#manual_code').click(function(){
-		$('#generate_code').slideDown();
-	});
-	$('#automatic_code').click(function(){
-		$('#generate_code').slideUp();
-	});
-	
-	fetchMetafield();
-	fetchCssCode();
-	$('body').on('click', '.saveoptions', function(e){
-	var access_token = '<?php echo $access_token ?>';
-	var shop = '<?php echo $_REQUEST['shop'] ?>';
-	var Arraydata = [];
-	$("input[name='sel_options[]']:checked").each(function() {
-	    var getid = $(this).attr('id');
-	    Arraydata.push($(this).val()+':'+$('#'+getid+'_class').val());
-	});
-	//console.log(Arraydata);
+	var server = '<?php echo $_SERVER['SERVER_NAME']; ?>';
 	$.ajax({
 		type: 'POST',
-		url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&options='+Arraydata,
+		url: '/collections.php?access_token='+access_token+'&shop='+shop,
 		dataType: "html",
 		success: function(data) { 
-			//console.log(data);
-			if(data){
-				addScript(data);
-			}
+		$("#settings").html(data);
+		console.log(data);
 		}
 	});
-    	});
-	
-	//Save Custom CSS
-	$('body').on('click', '.savecss', function(e){
-		var access_token = '<?php echo $access_token ?>';
-		var shop = '<?php echo $_REQUEST['shop'] ?>';
-		var csscode = escape($('#add_css').val());
-		//console.log(csscode);
-		$.ajax({
-			type: 'POST',
-			url: '/AddCssFile.php?access_token='+access_token+'&shop='+shop+'&cssCode='+csscode,
-			dataType: "html",
-			success: function(data) { 
-				console.log(data);
-			}
-		});
-    	});
 });
+	
+	
+	
 </script>	
+	
 </body>
 </html>
