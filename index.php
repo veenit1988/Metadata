@@ -58,33 +58,7 @@ function addScript(options){
 		}
 	});
 }	
-function fetchMetafield(){
-	console.log('fetch Metafield');
-	var access_token = '<?php echo $access_token ?>';
-	var shop = '<?php echo $_REQUEST['shop'] ?>';
-	$.ajax({
-		url: '/getmetafields.php?access_token='+access_token+'&shop='+shop,
-		success: function(data){
-			if(data){
-			var options = data.split(',');
-			console.log(options);
-			$.each(options, function(index, value){
-				data = value.split(':');
-				value = data[0];
-				var classes = data[1];
-				if($('input[name="sel_options[]"][value='+value+']')){
-				  $('input[name="sel_options[]"][value='+value+']').attr("checked","true");
-				  $('input[id='+value+'_class]').val(classes);
-				} else {
-				  $('input[name="sel_options[]"]').attr("checked","false");
-				  $('input[id='+value+'_class]').val(" ");
-				}
-			});
-			addScript(data);
-			}
-		}
-	});
-}
+
 	$(document).ready(function(){
 	
 	var access_token = '<?php echo $access_token ?>';
@@ -100,7 +74,29 @@ function fetchMetafield(){
 		}
 	});
 });
-	
+$('.collectionbtn').click(function() 
+{
+alert(1);
+    var book_id = $(this).parent().data('id'),
+    result = "Book #" + book_id + " has been reserved.";
+
+    $.ajax
+    ({ 
+        url: 'reservebook.php',
+        data: "book_id="+book_id,
+        type: 'post',
+        success: function()
+        {
+            $('.modal-box').text(result).fadeIn(700, function() 
+            {
+                setTimeout(function() 
+                {
+                    $('.modal-box').fadeOut();
+                }, 2000);
+            });
+        }
+    });
+});	
 	
 	
 </script>	
