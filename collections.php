@@ -5,7 +5,9 @@ use phpish\shopify;
 $access_token = $_REQUEST['access_token'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
-{     $collections = $shopify('GET /admin/custom_collections.json');
+{     
+$collections = $shopify('GET /admin/custom_collections.json');
+$smartcollection=$shopify('GET /admin/smart_collections.json'); 
 	if($collections){
 	echo '<form method="post" name="form" id="getcollection" action="#">';
 	echo '<table cellspacing="10" cellpadding="10" border="1">';
@@ -22,11 +24,23 @@ try
 		echo '</tr>';
 
 		}
+	foreach($smartcollection as $smartcollections)
+	{
+		echo '<tr>';
+		echo '<td>'.$smartcollections['title'].'</td>';
+		echo '<td><img src="'.$smartcollections["image"]["src"].'" alt="collectionimage" /></td>';
+		echo '<td>'.'<textarea class="form-control" id="col-metafield1" name="upperData[]">'.$smartcollections['body_html'].'</textarea>'.'</td>';
+		echo '<td>'.'<textarea class="form-control" id="col-metafield2" name="lowerData[]"></textarea>'.'</td>';
+		echo '<td>'.'<input type="button" class="collectionSave" value="Add Collection Data" name="addColData" data-id="'.$smartcollections["id"].'"></td>';
+		echo '</tr>';
+
+		}	
+		
 	echo '</tbody>';
 	echo '</table>';
  echo '</form>';
 }
-else{
+else() {
 echo "<div class='no-result'>No collections</div>";
 }
 
