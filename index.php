@@ -58,7 +58,33 @@ function addScript(options){
 		}
 	});
 }	
-$(document).ready(function(){
+function fetchMetafield(){
+	console.log('fetch Metafield');
+	var access_token = '<?php echo $access_token ?>';
+	var shop = '<?php echo $_REQUEST['shop'] ?>';
+	$.ajax({
+		url: '/getmetafields.php?access_token='+access_token+'&shop='+shop,
+		success: function(data){
+			if(data){
+			var options = data.split(',');
+			//console.log(options);
+			$.each(options, function(index, value){
+				data = value.split(':');
+				value = data[0];
+				var classes = data[1];
+				if($('input[name="sel_options[]"][value='+value+']')){
+				  $('input[name="sel_options[]"][value='+value+']').attr("checked","true");
+				  $('input[id='+value+'_class]').val(classes);
+				} else {
+				  $('input[name="sel_options[]"]').attr("checked","false");
+				  $('input[id='+value+'_class]').val(" ");
+				}
+			});
+			addScript(data);
+			}
+		}
+	});
+	$(document).ready(function(){
 	
 	var access_token = '<?php echo $access_token ?>';
 	var shop = '<?php echo $_REQUEST['shop'] ?>';
@@ -73,21 +99,9 @@ $(document).ready(function(){
 		}
 	});
 });
-$(document).ready(function(){
+}	
 	
-	var access_token = '<?php echo $access_token ?>';
-	var shop = '<?php echo $_REQUEST['shop'] ?>';
-	var server = '<?php echo $_SERVER['SERVER_NAME']; ?>';
-	$.ajax({
-		type: 'POST',
-		url: '/metafields.php?access_token='+access_token+'&shop='+shop,
-		dataType: "html",
-		success: function(data) { 
-		$("#settings").html(data);
-		console.log(data);
-		}
-	});
-});	
+	
 </script>	
 	
 </body>
