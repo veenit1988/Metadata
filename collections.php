@@ -56,11 +56,8 @@ function openmetafield() {
 	console.log(Arraydata);
         e.preventDefault();
 	      
-	    var collectionid = $(this).attr("data-id");
-	 
-	 
-	 
-	 
+	    var collectionid = $(this).attr("data-id"); 
+	 alert(collectionid);
 	 $.ajax({
 		type: 'POST',
 		url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&options='+Arraydata,
