@@ -74,11 +74,6 @@ function addScript(options){
 		}
 	});
 });
-$('.collectionbtn').click(function (e) {
-  e.preventDefault()
-  alert('ddd');
-})
-
 </script>	
 
 </body>
