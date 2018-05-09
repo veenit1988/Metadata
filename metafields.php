@@ -2,10 +2,8 @@
 require __DIR__.'/conf.php'; //Configuration
 require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
- $access_token = $_REQUEST['access_token'];
-$collectionid= $_REQUEST['collectionid'];
-$alloptions = $_REQUEST['options'];
-$auto_manual = $_REQUEST['auto_manual'];
+$access_token = $_REQUEST['access_token'];
+echo $collectionid = $_REQUEST['collectionid'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
