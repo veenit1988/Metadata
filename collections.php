@@ -56,17 +56,14 @@ function openmetafield() {
 	console.log(Arraydata);
         e.preventDefault();
 	      
-	    var collectionid = $(this).attr("data-id"); 
-	 alert(collectionid);
-	  alert(access_token);
-	  alert(shop);
-	 alert(Arraydata);
+	var collectionid = $(this).attr("data-id"); 
+	
 	 $.ajax({
 		type: 'POST',
 		url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&options='+Arraydata,
 		dataType: "html",
-		success: function(data) { 
-			alert(data);
+		success: function(responsecollection) { 
+			alert(responsecollection);
 			}
 	});
 	
