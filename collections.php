@@ -44,13 +44,19 @@ catch (shopify\ApiException $e)
 }
 ?>
 <script>
-	function openmetafield() {
-    alert('here');
-    $('.collectionid').click(function(e) {
+function openmetafield() {
+$('.collectionid').click(function(e) {
         e.preventDefault();
-        alert('here in');
-       
-
-    });
-}
+		 alert($(this).attr("a.collectionid data-id"));
+		alert(collectionid);
+        /*$.ajax({
+            url: 'Ajax/StatusUpdate.php',
+            data: {
+                text: $("textarea[name=Status]").val(),
+                Status: Status
+            },
+            dataType : 'json'
+        });*/
+ });
+}	
 </script>
