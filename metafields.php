@@ -20,8 +20,8 @@ try
 	$auto_manual_field = array( "metafield" => array('namespace' => 'automanualfield', 'key' => 'automanual', 'value' => $auto_manual,
 	'value_type' => 'string'));
 	
-	$response = $shopify('POST /admin/collections/metafields.json',$metafield);
-	$response_auto_manual = $shopify('POST /admin/collections/metafields.json',$auto_manual_field);
+	$response = $shopify('POST /admin/metafields.json',$metafield);
+	$response_auto_manual = $shopify('POST /admin/metafields.json',$auto_manual_field);
 	echo $response['value'].'==='.$response_auto_manual['value'];
 }
 catch (shopify\ApiException $e)
