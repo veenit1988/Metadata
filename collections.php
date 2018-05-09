@@ -62,7 +62,7 @@ function openmetafield() {
 	
 	 $.ajax({
 		type: 'POST',
-		url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+collectionid++'&meta1='+meta1++'&meta2='+meta2,
+		 url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+collectionid+'&meta1='+meta1+'&meta2='+meta2,
 		dataType: "html",
 		success: function(responsecollection) { 
 			console.log(responsecollection);
