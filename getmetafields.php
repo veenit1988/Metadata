@@ -3,19 +3,21 @@ require __DIR__.'/conf.php'; //Configuration
 require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
 $access_token = $_REQUEST['access_token'];
+$collectionid = $_REQUEST['collectionid'];
+$meta2 = $_REQUEST['meta2'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {		
-		$response = $shopify('GET /admin/collections/metafields.json');
-		$revisebutton = ''; $automanualfield = '';
-		foreach($response as $options){
-			if($options['namespace'] == 'revisebutton'){
-				$revisebutton = $options['value'];
-			} else if($options['namespace'] == 'automanualfield'){
-				$automanualfield = $options['value'];
+		$response = $shopify('GET /admin/collections' + $collectionid + '/metafields.json');
+		$collectiondescription = ''; $lowercollectionmeta = '';
+		foreach($response as $meta2){
+			if($meta2['namespace'] == 'lowercollectionmeta'){
+				$lowercollectionmeta = $meta2['value'];
+			} else if($meta2['namespace'] == 'lowercollectionmeta'){
+				$lowercollectionmeta = $meta2['value'];
 			}
 		}
-		echo $revisebutton.'==='.$automanualfield;
+		echo $lowercollectionmeta.'==='.$lowercollectionmeta;
 }
 catch (shopify\ApiException $e)
 {
