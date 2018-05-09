@@ -53,7 +53,7 @@ function openmetafield() {
 	    var getid = $(this).attr('id');
 	    Arraydata.push($(this).val()+':'+$('#'+getid+'_class').val());
 	});
-		
+	console.log(Arraydata);
         e.preventDefault();
 	      
 	    var collectionid = $(this).attr("data-id");
