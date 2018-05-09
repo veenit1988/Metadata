@@ -52,17 +52,12 @@ function openmetafield() {
 	    var collectionid = $(this).attr("data-id");
 	   $.ajax({
 		type: 'POST',
-	     url: 'POST /admin/collections/' + pageid + '/metafields.json',
-		dataType: "html",
+	   url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+collectionid,
 		success: function(data) { 
-		/* $("#settings").html(data);*/ 
 		console.log(data);
 		}
 	});
-	 
-		
-	    
-         });
+	});
 }	
 	
 </script>
