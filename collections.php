@@ -52,16 +52,8 @@ function openmetafield() {
 
 	var access_token = '<?php echo $access_token ?>';
 	var shop = '<?php echo $_REQUEST['shop'] ?>';
-	var Arraydata = [];
-	$("input[name='sel_options[]']:checked").each(function() {
-	    var getid = $(this).attr('id');
-	    Arraydata.push($(this).val()+':'+$('#'+getid+'_class').val());
-	});
-	console.log(Arraydata);
-        e.preventDefault();
-	      
+	e.preventDefault();
 	var collectionid = $(this).attr("data-id"); 
-	
 	 $.ajax({
 		type: 'POST',
 		 url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+collectionid+'&meta1='+meta1+'&meta2='+meta2,
