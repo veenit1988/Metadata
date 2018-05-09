@@ -67,7 +67,7 @@ function fetchMetafield(){
 		success: function(data){
 			if(data){
 			var options = data.split(',');
-			//console.log(options);
+			console.log(options);
 			$.each(options, function(index, value){
 				data = value.split(':');
 				value = data[0];
