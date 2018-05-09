@@ -63,7 +63,7 @@ function openmetafield() {
 		url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&options='+Arraydata,
 		dataType: "html",
 		success: function(responsecollection) { 
-			alert(responsecollection);
+			console.log(responsecollection);
 			}
 	});
 	
