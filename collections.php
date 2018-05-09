@@ -21,7 +21,7 @@ try
 			echo '<td>'.$Allcollections['body_html'].'</td>';
 			echo '<td>'.'<textarea class="form-control" id="metafield1-text" name="sel_options[]"></textarea>'.'</td>';
 			echo '<td>'.'<textarea class="form-control" id="metafield2-text" name="sel_options[]"></textarea>'.'</td>';
-			echo '<td>'.'<a href="#" class="collectionid" data-id="'.$Allcollections["id"].'">Add Metafield</a>'.'</td>';
+			echo '<td>'.'<a href="#"   onClick = "openmetafield();"  class="collectionid" data-id="'.$Allcollections["id"].'">Add Metafield</a>'.'</td>';
 			echo '</tr>';
 			
 			}
@@ -43,3 +43,14 @@ catch (shopify\ApiException $e)
 	print_r($e->getResponse());
 }
 ?>
+<script>
+	function openSolution() {
+    alert('here');
+    $('.collectionid').click(function(e) {
+        e.preventDefault();
+        alert('here in');
+       
+
+    });
+}
+</script>
