@@ -14,7 +14,9 @@ try
 	{
 	$metafield = array( "metafield" => array('namespace' => 'revisebutton', 'key' => 'lowerData', 'value' => $meta2,
 	'value_type' => 'string'));
-	} 
+	print_r($metafield);
+	}
+	
 	else {
 	$meta2 = "noData";
 	$metafield = array( "metafield" => array('namespace' => 'revisebutton', 'key' => 'lowerData', 'value' => $meta2,
