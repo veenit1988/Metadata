@@ -73,6 +73,21 @@ $(document).ready(function(){
 		}
 	});
 });
+$(document).ready(function(){
+	
+	var access_token = '<?php echo $access_token ?>';
+	var shop = '<?php echo $_REQUEST['shop'] ?>';
+	var server = '<?php echo $_SERVER['SERVER_NAME']; ?>';
+	$.ajax({
+		type: 'POST',
+		url: '/metafields.php?access_token='+access_token+'&shop='+shop,
+		dataType: "html",
+		success: function(data) { 
+		$("#settings").html(data);
+		console.log(data);
+		}
+	});
+});	
 </script>	
 	
 </body>
