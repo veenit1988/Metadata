@@ -9,14 +9,14 @@ echo $meta2 = $_REQUEST[' meta2'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
-	if($meta1)
+	if($meta2)
 	{
-	$metafield = array( "metafield" => array('namespace' => 'revisebutton', 'key' => 'lowerData', 'value' => $meta1,
+	$metafield = array( "metafield" => array('namespace' => 'revisebutton', 'key' => 'lowerData', 'value' => $meta2,
 	'value_type' => 'string'));
 	} 
 	else {
-	$meta1 = "noData";
-	$metafield = array( "metafield" => array('namespace' => 'revisebutton', 'key' => 'lowerData', 'value' => $meta1,
+	$meta2 = "noData";
+	$metafield = array( "metafield" => array('namespace' => 'revisebutton', 'key' => 'lowerData', 'value' => $meta2,
 	'value_type' => 'string'));
 	}
 	
