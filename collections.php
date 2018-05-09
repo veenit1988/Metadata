@@ -9,7 +9,7 @@ try
 		if($collections){
 		echo '<form method="post" name="form" id="getproducts" action="#">';
 		echo '<table cellspacing="10" cellpadding="10" border="1">';
-		echo '<thead><tr><th></th><th>Collection Name</th><th>Image</th><th>Content</th><th>Add Content</th></tr></thead>';
+		echo '<thead><tr><th></th><th>Collection Name</th><th>Image</th><th>Content</th><th>upeerdata</th><th>lowerdata</th><th>Action</th></tr></thead>';
 			echo '<tbody>';
 		foreach($collections as $Allcollections)
 		
