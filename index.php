@@ -94,10 +94,7 @@ function fetchMetafield(){
 	$.ajax({
 		url: '/getmetafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId+'&meta1='+meta1+'&meta2='+meta2,
 		success: function(data){
-			if(data){
-			var collectionoptions = data.split(',');
-			console.log(options);
-			}
+			console.log(data);
 		}
 	});
 }
