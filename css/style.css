@@ -490,7 +490,8 @@ tbody tr:first-child::after{
 	text-transform: inherit;
 	cursor: no-drop;
 }
-tbody tr td:nth-child(2) {width: 20%;}
+tbody tr td:first-child{width: 5%;}
+tbody tr td:nth-child(2) {width: 10%;}
 tbody tr td:nth-child(3) {width: 20%;}
 .option_outer table .tooltip {
     display: table-cell;
@@ -513,6 +514,13 @@ h5.faqhead {font-weight: bold;}
 p.faqcontent {font-weight: 100;}
 tbody tr:first-child p.tile_code {
     line-height: 1.8;
+}
+a.collectionid {
+    background: black;
+    font-size: 12px;
+    border: 1px solid #000;
+    color: #fff;
+    padding: 5px 10px 5px 10px;
 }
 @media(max-width: 1100px){
 	.auto_manual_outer .options {width: 45%;}
