@@ -14,11 +14,10 @@ if( $meta1 !== '' || $meta2 !== '' )
 	{
 	$metafield1 = array( "metafield" => array('namespace' => 'collectiondescription', 'key' => 'collectiondescription', 'value' => $meta1,
 	'value_type' => 'string'));
-	print_r($metafield1);
-
+	
 	$metafield2 = array( "metafield" => array('namespace' => 'lowercollectionmeta', 'key' => 'lowercollectiondata', 'value' => $meta2,
 	'value_type' => 'string'));
-	print_r($metafield2);
+
 	}
 	
 	else {
@@ -28,8 +27,11 @@ if( $meta1 !== '' || $meta2 !== '' )
 	$metafield2 = array( "metafield" => array('namespace' => 'lowercollectionmeta', 'key' => 'lowercollectiondata', 'value' => $meta2,
 	'value_type' => 'string'));
 	}
-	$response = $shopify('POST /admin/collections/' + $collectionid + '/metafields.json',$metafield);	
+	$response = $shopify('POST /admin/collections/' + $collectionid + '/metafields.json',$metafield1,$metafield2);
+	
 	echo $response['value'].'==='.$response_auto_manual['value'];
+	
+	
 }
 catch (shopify\ApiException $e)
 {
@@ -38,4 +40,7 @@ catch (shopify\ApiException $e)
 	print_r($e->getRequest());
 	print_r($e->getResponse());
 }
+
+
+
 ?>
