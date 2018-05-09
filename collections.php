@@ -57,14 +57,22 @@ function openmetafield() {
         e.preventDefault();
 	      
 	    var collectionid = $(this).attr("data-id");
-	   $.ajax({
+	 
+	 
+	 
+	 
+	 $.ajax({
 		type: 'POST',
-	   url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+collectionid+'&options='+Arraydata,
+		url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&options='+Arraydata,
+		dataType: "html",
 		success: function(data) { 
-		alert(data);
-		//console.log(data);
+			alert(data);
+			if(data){
+				addScript(data);
+			}
 		}
 	});
+	
 	});
 }	
 	
