@@ -10,16 +10,22 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 try
 {	
 
- if( $meta2 !== '' )
+if( $meta1 !== '' || $meta2 !== '' )
 	{
-	$metafield = array( "metafield" => array('namespace' => 'lowercollectionmeta', 'key' => 'lowercollectiondata', 'value' => $meta2,
+	$metafield1 = array( "metafield" => array('namespace' => 'collectiondescription', 'key' => 'collectiondescription', 'value' => $meta1,
 	'value_type' => 'string'));
-	print_r($metafield);
+	print_r($metafield1);
+
+	$metafield2 = array( "metafield" => array('namespace' => 'lowercollectionmeta', 'key' => 'lowercollectiondata', 'value' => $meta2,
+	'value_type' => 'string'));
+	print_r($metafield2);
 	}
 	
 	else {
 	$meta2 = "noData";
-	$metafield = array( "metafield" => array('namespace' => 'lowercollectionmeta', 'key' => 'lowercollectiondata', 'value' => $meta2,
+	$metafield1 = array( "metafield" => array('namespace' => 'collectiondescription', 'key' => 'collectiondescription', 'value' => $meta1,
+	'value_type' => 'string'));
+	$metafield2 = array( "metafield" => array('namespace' => 'lowercollectionmeta', 'key' => 'lowercollectiondata', 'value' => $meta2,
 	'value_type' => 'string'));
 	}
 	$response = $shopify('POST /admin/collections/' + $collectionid + '/metafields.json',$metafield);	
