@@ -49,7 +49,7 @@ function openmetafield() {
     $('.collectionid').click(function(e) {
         e.preventDefault();
 	    alert("dd");
-		 alert($("a.collectionid").attr("a.collectionid data-id"));
+		 alert($(this).attr("data-id"));
          });
 }	
 	
