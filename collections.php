@@ -48,16 +48,8 @@ function openmetafield() {
   
     $('.collectionid').click(function(e) {
         e.preventDefault();
-		var collectionid = $('a.collectionid').attr('data-id');
-		
-		alert(collectionid);
-        $.ajax({
-            url: 'Ajax/StatusUpdate.php',
-            data: {
-                text: $("textarea[name=Status]").val(),
-                Status: Status
-            },
-            dataType : 'json'
-        });
+		 alert($('a.collectionid').attr("a.collectionid data-id"));
+         });
+}	
 	
 </script>
