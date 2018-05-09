@@ -89,16 +89,27 @@ if(meta1 != '' || meta2 != '')	{
 }
 
 });	
+
+/*********************fetchdata********************************/
 function fetchMetafield(){
 	console.log('fetch Metafield');
+	var access_token = '<?php echo $access_token ?>';
+	var shop = '<?php echo $_REQUEST['shop'] ?>';
 	$.ajax({
-		url: '/getmetafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId+'&meta1='+meta1+'&meta2='+meta2,
+		url: '/getmetafields.php?access_token='+access_token+'&shop='+shop,
 		success: function(data){
 			console.log(data);
 		}
 	});
-}
-
+}			
+/*********************endfetch********************************/
+	
+	
+	
+	
+	
+	
+	
 
 
 });
