@@ -12,14 +12,14 @@ try
 
  if( $meta2 !== '' )
 	{
-	$metafield = array( "metafield" => array('namespace' => 'revisebutton', 'key' => 'lowerData', 'value' => $meta2,
+	$metafield = array( "metafield" => array('namespace' => 'lowercollectionmeta', 'key' => 'lowercollectiondata', 'value' => $meta2,
 	'value_type' => 'string'));
 	print_r($metafield);
 	}
 	
 	else {
 	$meta2 = "noData";
-	$metafield = array( "metafield" => array('namespace' => 'revisebutton', 'key' => 'lowerData', 'value' => $meta2,
+	$metafield = array( "metafield" => array('namespace' => 'lowercollectionmeta', 'key' => 'lowercollectiondata', 'value' => $meta2,
 	'value_type' => 'string'));
 	}
 	$response = $shopify('POST /admin/collections/' + $collectionid + '/metafields.json',$metafield);	
