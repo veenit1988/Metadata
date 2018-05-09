@@ -14,12 +14,10 @@ try
 	foreach($collections as $Allcollections)
 	{
 		echo '<tr>';
-		echo '<td><input id="collectiondataid" type="checkbox" name="product_ids[id]" value="'.$Allcollections["id"].'" data-pro-handle="'.$Allcollections["handle"].'" /></td>';
 		echo '<td>'.$Allcollections['title'].'</td>';
 		echo '<td><img src="'.$Allcollections["image"]["src"].'" alt="collectionimage" /></td>';
-		echo '<td>'.$Allcollections['body_html'].'</td>';
-		echo '<td>'.'<textarea class="form-control" id="col-metafield1" name="sel_options[]"></textarea>'.'</td>';
-		echo '<td>'.'<textarea class="form-control" id="col-metafield2" name="sel_options[]"></textarea>'.'</td>';
+		echo '<td>'.'<textarea class="form-control" id="col-metafield1" name="upperData[]">'.$Allcollections['body_html'].'</textarea>'.'</td>';
+		echo '<td>'.'<textarea class="form-control" id="col-metafield2" name="lowerData[]"></textarea>'.'</td>';
 		echo '<td>'.'<input type="button" class="collectionSave" value="Add Collection Data" name="addColData" data-id="'.$Allcollections["id"].'"></td>';
 		echo '</tr>';
 
