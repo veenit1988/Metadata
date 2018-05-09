@@ -19,8 +19,8 @@ try
 			echo '<td>'.$Allcollections['title'].'</td>';
 			echo '<td><img src="'.$Allcollections["image"]["src"].'" alt="collectionimage" /></td>';
 			echo '<td>'.$Allcollections['body_html'].'</td>';
-			echo '<td>'.'<textarea class="form-control" id="metafield1-text"></textarea>'.'</td>';
-			echo '<td>'.'<textarea class="form-control" id="metafield2-text"></textarea>'.'</td>';
+			echo '<td>'.'<textarea class="form-control" id="metafield1-text" name="sel_options[]"></textarea>'.'</td>';
+			echo '<td>'.'<textarea class="form-control" id="metafield2-text" name="sel_options[]"></textarea>'.'</td>';
 			echo '<td>'.'<button type="button" class="btn btn-primary collectionbtn">Add Metafield</button>'.'</td>';
 			echo '</tr>';
 			
