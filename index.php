@@ -35,44 +35,59 @@ $server = 'https://'.$_SERVER['SERVER_NAME'];
 <div class="content-container">
 	<h1 class="title">Welcome to Collection page customize APP</h1>
 	<div id="main-container">
-		<div id="settings">
-			
-		</div>	
+		<div id="collection_container"></div>	
 	</div>
 </div> 
 <script>
 // Add Script
 function addScript(options){
-	var access_token = '<?php echo $access_token ?>';
-	var shop = '<?php echo $_REQUEST['shop'] ?>';
-	var server = '<?php echo $_SERVER['SERVER_NAME']; ?>';
-	$.ajax({
-		url: '/addScript.php?access_token='+access_token+'&shop='+shop+'&options='+options+'&server='+server,
-		success: function(data){
-			console.log(data);
-			if($("#manual_code").is(':checked')){
-				$('#generate_code').show().val(data);
-			} else if($("#automatic_code").is(':checked')){
-				$('#generate_code').hide().val(" ");
-			}
+var access_token = '<?php echo $access_token ?>';
+var shop = '<?php echo $_REQUEST['shop'] ?>';
+var server = '<?php echo $_SERVER['SERVER_NAME']; ?>';
+$.ajax({
+	url: '/addScript.php?access_token='+access_token+'&shop='+shop+'&options='+options+'&server='+server,
+	success: function(data){
+		console.log(data);
+		if($("#manual_code").is(':checked')){
+			$('#generate_code').show().val(data);
+		} else if($("#automatic_code").is(':checked')){
+			$('#generate_code').hide().val(" ");
 		}
-	});
+	}
+});
 }	
 
-	$(document).ready(function(){
+$(document).ready(function(){
+var access_token = '<?php echo $access_token ?>';
+var shop = '<?php echo $_REQUEST['shop'] ?>';
+var server = '<?php echo $_SERVER['SERVER_NAME']; ?>';
+$.ajax({
+	type: 'POST',
+	url: '/collections.php?access_token='+access_token+'&shop='+shop,
+	dataType: "html",
+	success: function(data) { 
+	  $("#collection_container").html(data);
+	}
+});
 	
-	var access_token = '<?php echo $access_token ?>';
-	var shop = '<?php echo $_REQUEST['shop'] ?>';
-	var server = '<?php echo $_SERVER['SERVER_NAME']; ?>';
+$('body').on('click', '.collectionSave', function(e) {
+ var meta1 = $("#col-metafield1").val();
+ var meta2 = $("#col-metafield2").val();
+if(meta1 != '' || meta2 != '')	{
+	var colId = $(this).attr('data-id');	
 	$.ajax({
-		type: 'POST',
-		url: '/collections.php?access_token='+access_token+'&shop='+shop,
-		dataType: "html",
-		success: function(data) { 
-		$("#settings").html(data);
-		console.log(data);
-		}
+	type: 'POST',
+	 url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+collectionid+'&meta1='+meta1+'&meta2='+meta2,
+	dataType: "html",
+	success: function(responsecollection) { 
+		console.log(responsecollection);
+	}
 	});
+} else {
+  alert('Please fill collection Fields!');
+}
+
+});	
 });
 </script>	
 
