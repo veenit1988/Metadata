@@ -21,7 +21,7 @@ try
 			echo '<td>'.$Allcollections['body_html'].'</td>';
 			echo '<td>'.'<textarea class="form-control" id="metafield1-text"></textarea>'.'</td>';
 			echo '<td>'.'<textarea class="form-control" id="metafield2-text"></textarea>'.'</td>';
-			echo '<td>'.'<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Metafield</button>'.'</td>';
+			echo '<td>'.'<button type="button" class="btn btn-primary collectionbtn">Add Metafield</button>'.'</td>';
 			echo '</tr>';
 			
 			}
