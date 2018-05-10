@@ -73,16 +73,19 @@ $(document).ready(function(){
 		var colId = $(this).attr('data-id');	
 		var metafieldData = $('#col-metafield2_'+colId).val();
 		if(metafieldData != '')	{
-			var metafieldContent = {
+			var allData = {
+			  'access_token': access_token,
+			  'shop': shop,
+			  'collectionid': colId,
 			  'metafieldData': metafieldData
 			};
 			$.ajax({
-			type: 'POST',
-			url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId,
-			data: metafieldContent,
-			success: function(response) { 
-			console.log(response);
-			}
+				type: 'POST',
+				url: '/metafields.php',
+				data: allData,
+				success: function(response) { 
+				console.log(response);
+				}
 			});
 		} else {
 		  alert('Please fill collection Fields!');
