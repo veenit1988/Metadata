@@ -73,7 +73,7 @@ $('body').on('click', '.collectionSave', function(e) {
 var colId = $(this).attr('data-id');	
 var meta2 = '#col-metafield2_' + colId;
 var a = document.getElementById("meta2");
-alert(a);
+	console.log(a);
 	
 if(meta2 != '')	{
 	var colId = $(this).attr('data-id');
