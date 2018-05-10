@@ -11,25 +11,27 @@ $smartcollection=$shopify('GET /admin/smart_collections.json');
 	if($collections){
 	echo '<form method="post" name="form" id="getcollection" action="#">';
 	echo '<table cellspacing="10" cellpadding="10" border="1">';
-	echo '<thead><tr><th>Collection Name</th><th>Image</th><th>upperData</th><th>lowerData</th></tr></thead>';
+	echo '<thead><tr><th>Collection Name</th><th>Image</th><th>upperData</th><th>Action</th></tr></thead>';
 		echo '<tbody>';
 	foreach($collections as $Allcollections)
-	{
+	{	
+		$colId = $Allcollections["id"];
 		echo '<tr>';
 		echo '<td>'.$Allcollections['title'].'</td>';
 		echo '<td><img src="'.$Allcollections["image"]["src"].'" alt="collectionimage" /></td>';
-		echo '<td>'.'<textarea class="form-control" id="#col-metafield2_'.$Allcollections["id"].'" name="lowerData[]"></textarea>'.'</td>';
-		echo '<td>'.'<input type="button" class="collectionSave" value="Add Collection Data" name="addColData" data-id="'.$Allcollections["id"].'"></td>';
+		echo '<td>'.'<textarea class="form-control" id="#col-metafield2_'.$colId.'" name="lowerData[]"></textarea>'.'</td>';
+		echo '<td>'.'<input type="button" class="collectionSave" value="Add Collection Data" name="addColData" data-id="'.$colId.'"></td>';
 		echo '</tr>';
 
 		}
 	foreach($smartcollection as $smartcollections)
 	{
+		$colId = $Allcollections["id"];
 		echo '<tr>';
 		echo '<td>'.$smartcollections['title'].'</td>';
 		echo '<td><img src="'.$smartcollections["image"]["src"].'" alt="collectionimage" /></td>';
-		echo '<td>'.'<textarea class="form-control" id="#col-metafield2_'.$Allcollections["id"].'" name="lowerData[]"></textarea>'.'</td>';
-		echo '<td>'.'<input type="button" class="collectionSave" value="Add Collection Data" name="addColData" data-id="'.$smartcollections["id"].'"></td>';
+		echo '<td>'.'<textarea class="form-control" id="#col-metafield2_'.$colId.'" name="lowerData[]"></textarea>'.'</td>';
+		echo '<td>'.'<input type="button" class="collectionSave" value="Add Collection Data" name="addColData" data-id="'.$colId.'"></td>';
 		echo '</tr>';
 
 		}	
