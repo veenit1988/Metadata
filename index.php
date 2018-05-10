@@ -71,8 +71,7 @@ $.ajax({
 });
 $('body').on('click', '.collectionSave', function(e) {
 var colId = $(this).attr('data-id');
-var meta2 = '#col-metafield2_' + colId;	
-var text = $(meta2).val();
+var text = $('#col-metafield2_'+colId).val();
 console.log(text);
 if(meta2 != '')	{
 
