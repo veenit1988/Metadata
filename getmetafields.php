@@ -7,8 +7,8 @@ echo $collectionid = $_REQUEST['collectionid'];
 echo $meta2 = $_REQUEST['meta2'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
-{		
-	$response = $shopify('GET /admin/collections' + $collectionid + '/metafields.json');
+{	//$shopify('POST /admin/collections/' + $collectionid + '/metafields.json',$metafield2);
+	$response = $shopify('GET /admin/collections' + $collectionid + '/metafields.json',$metafield2);
 	print_r($response);
 		$collectiondescription = ''; $lowercollectionmeta = '';
 		foreach($response as $meta2){
