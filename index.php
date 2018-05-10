@@ -69,24 +69,21 @@ $.ajax({
 	  $("#collection_container").html(data);
 	}
 });
-	
 $('body').on('click', '.collectionSave', function(e) {
- var meta1 = $("#col-metafield1").val();
  var meta2 = $("#col-metafield2").val();
-if(meta1 != '' || meta2 != '')	{
+if(meta2 != '')	{
 	var colId = $(this).attr('data-id');
 	$.ajax({
 	type: 'POST',
 	 url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId+'&meta2='+meta2,
 	dataType: "html",
 	success: function(responsecollection) { 
-		console.log(responsecollection);
+	console.log(responsecollection);
 	}
 	});
 } else {
   alert('Please fill collection Fields!');
 }
-
 });	
 /*********************fetchdata********************************/
 function fetchMetafield(){
@@ -101,14 +98,6 @@ function fetchMetafield(){
 }			
 /*********************endfetch********************************/
 	
-	
-	
-	
-	
-	
-	
-
-
 });
 </script>	
 
