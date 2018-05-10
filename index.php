@@ -71,7 +71,7 @@ $.ajax({
 });
 $('body').on('click', '.collectionSave', function(e) {
 
-var val = $('textarea[id^="collectionid"]', this).val();	
+var val = $('textarea[id^="colId"]', this).val();	
 alert(val);	
 //var meta2 = $("#col-metafield2").val();
 
