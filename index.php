@@ -72,8 +72,8 @@ $.ajax({
 $('body').on('click', '.collectionSave', function(e) {
 var colId = $(this).attr('data-id');
 var meta2 = '#col-metafield2_' + colId;	
-//var meta2 = $("#col-metafield2").val();
-alert(meta2);
+var comment = $(meta2).val();
+alert(comment);
 if(meta2 != '')	{
 
 	$.ajax({
