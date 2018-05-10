@@ -70,7 +70,8 @@ $.ajax({
 	}
 });
 $('body').on('click', '.collectionSave', function(e) {
-var meta2 = $('#col-metafield2_'+colId).val();
+var colId = $(this).attr('data-id');	
+var meta2 = '#col-metafield2_' + colId;
 alert(meta2);	
 	
 if(meta2 != '')	{
