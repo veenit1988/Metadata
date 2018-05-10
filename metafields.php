@@ -19,9 +19,10 @@ if($meta2 !== '' )
 	$metafield2 = array( "metafield" => array('namespace' => 'lowercollectionmeta', 'key' => 'lowercollectiondata', 'value' => $meta2,
 	'value_type' => 'string'));
 	}
-	$response = $shopify('POST /admin/collections/' + $collectionid + '/metafields.json',$metafield2);
-	echo $response['value'];
-	
+	$customresponse = $shopify('POST /admin/custom_collections/' + $collectionid + '/metafields.json',$metafield2);
+	$smartresponse = $shopify('POST /admin/smart_collections/' + $collectionid + '/metafields.json',$metafield2);
+	echo $customresponse['value'];
+	echo $smartresponse['value'];
 	
 }
 catch (shopify\ApiException $e)
