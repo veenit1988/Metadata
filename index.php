@@ -58,33 +58,34 @@ $.ajax({
 }	
 
 $(document).ready(function(){
-var access_token = '<?php echo $access_token ?>';
-var shop = '<?php echo $_REQUEST['shop'] ?>';
-var server = '<?php echo $_SERVER['SERVER_NAME']; ?>';
-$.ajax({
-	type: 'POST',
-	url: '/collections.php?access_token='+access_token+'&shop='+shop,
-	dataType: "html",
-	success: function(data) { 
-	  $("#collection_container").html(data);
-	}
-});
-$('body').on('click', '.collectionSave', function(e) {
-var colId = $(this).attr('data-id');	
-var metafieldData = $('#col-metafield2_'+colId).val();
-if(metafieldData != '')	{
+	var access_token = '<?php echo $access_token ?>';
+	var shop = '<?php echo $_REQUEST['shop'] ?>';
+	var server = '<?php echo $_SERVER['SERVER_NAME']; ?>';
 	$.ajax({
-	type: 'POST',
-	 url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId+'&metafieldData='+metafieldData,
-	success: function(response) { 
-	console.log(response);
-	}
+		type: 'POST',
+		url: '/collections.php?access_token='+access_token+'&shop='+shop,
+		dataType: "html",
+		success: function(data) { 
+		  $("#collection_container").html(data);
+		}
 	});
-} else {
-  alert('Please fill collection Fields!');
-}
+	$('body').on('click', '.collectionSave', function(e) {
+		var colId = $(this).attr('data-id');	
+		var metafieldData = $('#col-metafield2_'+colId).val();
+		if(metafieldData != '')	{
+			$.ajax({
+			type: 'POST',
+			 url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId+'&metafieldData='+metafieldData,
+			success: function(response) { 
+			console.log(response);
+			}
+			});
+		} else {
+		  alert('Please fill collection Fields!');
+		}
+	});
 });	
-/*********************fetchdata********************************/
+
 function fetchMetafield(){
 	console.log('fetch Metafield');
 	$.ajax({
@@ -95,9 +96,7 @@ function fetchMetafield(){
 		}
 	});
 }			
-/*********************endfetch********************************/
 	
-});
 </script>	
 
 </body>
