@@ -77,7 +77,7 @@ if(meta1 != '' || meta2 != '')	{
 	var colId = $(this).attr('data-id');
 	$.ajax({
 	type: 'POST',
-	 url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId+'&meta1='+meta1+'&meta2='+meta2,
+	 url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId+'&meta2='+meta2,
 	dataType: "html",
 	success: function(responsecollection) { 
 		console.log(responsecollection);
