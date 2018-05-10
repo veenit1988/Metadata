@@ -70,8 +70,11 @@ $.ajax({
 	}
 });
 $('body').on('click', '.collectionSave', function(e) {
- var meta2 = $("#col-metafield2").val();
-alert(meta2);	
+
+var val = $('textarea[id^="collectionid"]', this).val();	
+alert(val);	
+//var meta2 = $("#col-metafield2").val();
+
 if(meta2 != '')	{
 	var colId = $(this).attr('data-id');
 	$.ajax({
