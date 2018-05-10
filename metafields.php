@@ -6,11 +6,10 @@ $access_token = $_REQUEST['access_token'];
 $shop = $_REQUEST['shop'];
 $collectionid = $_REQUEST['collectionid'];
 $metafieldData = $_REQUEST['metafieldData'];
-print_r($_REQUEST); // data
-/*$shopify = shopify\client($shop, SHOPIFY_APP_API_KEY, $access_token );
+$shopify = shopify\client($shop, SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
-	$metafield = array( "metafield" => array('namespace' => 'lowercollectionmeta', 'key' => 'lowercollectiondata', 'value' => $metafieldData,
+	$metafield = array( "metafield" => array('namespace' => 'lowerDataCol', 'key' => 'lowerData', 'value' => $metafieldData,
 	'value_type' => 'string'));
 	
 	//CustomCollection and SmartCollection
@@ -24,6 +23,6 @@ catch (shopify\ApiException $e)
 	echo $e;
 	print_r($e->getRequest());
 	print_r($e->getResponse());
-}*/
+}
 
 ?>
