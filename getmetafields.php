@@ -10,8 +10,6 @@ try
 {	//$shopify('POST /admin/collections/' + $collectionid + '/metafields.json',$metafield2);
 	$response = $shopify('GET /admin/custom_collections' + $collectionid + '/metafields.json',$metafield2);
 	$smartresponse = $shopify('GET /admin/smart_collections' + $collectionid + '/metafields.json',$metafield2);
-	print_r($customresponse);
-	print_r($smartresponse);
 		$collectiondescription = ''; $lowercollectionmeta = '';
 		foreach($response as $meta2){
 			if($meta2['namespace'] == 'lowercollectionmeta'){
