@@ -33,6 +33,4 @@ catch (shopify\ApiException $e)
 	print_r($e->getResponse());
 }
 
-
-
 ?>
