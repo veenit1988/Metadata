@@ -70,6 +70,7 @@ $(document).ready(function(){
 		}
 	});
 	$('body').on('click', '.collectionSave', function(e) {
+		alert(123);
 		var colId = $(this).attr('data-id');	
 		var metafieldData = $('#col-metafield2_'+colId).val();
 		if(metafieldData != '')	{
