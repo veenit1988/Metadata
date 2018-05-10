@@ -10,7 +10,7 @@ try
 {	
 	$metafield = array( "metafield" => array('namespace' => 'collectionlower', 'key' => 'lowerdata', 'value' => $metafieldData, 'value_type' => 'string'));
 	//Collection Metafield
-	$response = $shopify('POST /admin/collections/38781747260/metafields.json',$metafield);
+	$response = $shopify('POST /admin/collections/38781747260/metafields.json?'.$metafield);
 	print_r($response);
 	
 }
