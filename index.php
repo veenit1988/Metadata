@@ -76,7 +76,7 @@ var a = document.getElementById("meta2");
 	console.log(a);
 	
 if(meta2 != '')	{
-	var colId = $(this).attr('data-id');
+
 	$.ajax({
 	type: 'POST',
 	 url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId+'&meta2='+meta2,
