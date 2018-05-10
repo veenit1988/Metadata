@@ -20,7 +20,7 @@ if($meta2 !== '' )
 	'value_type' => 'string'));
 	}
 	$response = $shopify('POST /admin/collections/' + $collectionid + '/metafields.json',$metafield2);
-	echo $response['value'].'==='.$response_auto_manual['value'];
+	echo $response['value'];
 	
 	
 }
