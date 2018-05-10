@@ -6,13 +6,14 @@ $access_token = $_REQUEST['access_token'];
 $shop = $_REQUEST['shop'];
 $collectionid = $_REQUEST['collectionid'];
 $metafieldData = $_REQUEST['metafieldData'];
+print_r($_REQUEST);
 $shopify = shopify\client($shop, SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
 	$metafield = array( "metafield" => array('namespace' => 'lowerDataCol', 'key' => 'lowerData', 'value' => $metafieldData,
 	'value_type' => 'string'));
-	
-	//CustomCollection and SmartCollection
+	print_r($metafield);
+	//Collection Metafield
 	$response = $shopify('POST /admin/collections/'.$collectionid.'/metafields.json',$metafield);
 	echo $response['value'];
 	
