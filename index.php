@@ -71,10 +71,10 @@ $.ajax({
 });
 $('body').on('click', '.collectionSave', function(e) {
 var colId = $(this).attr('data-id');
-var meta2 = $('#col-metafield2_'+colId).val();
+var meta = $('#col-metafield2_'+colId);
+var meta2 = document.getElementById(meta).value;	
 console.log(meta2);
 if(meta2 != '')	{
-
 	$.ajax({
 	type: 'POST',
 	 url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId+'&meta2='+meta2,
