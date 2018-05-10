@@ -26,7 +26,7 @@ $smartcollection=$shopify('GET /admin/smart_collections.json');
 		}
 	foreach($smartcollection as $smartcollections)
 	{
-		$colId = $Allcollections["id"];
+		$colId = $smartcollections["id"];
 		echo '<tr>';
 		echo '<td>'.$smartcollections['title'].'</td>';
 		echo '<td><img src="'.$smartcollections["image"]["src"].'" alt="collectionimage" /></td>';
