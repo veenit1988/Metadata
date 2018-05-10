@@ -10,12 +10,12 @@ print_r($_REQUEST);
 $shopify = shopify\client($shop, SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
-	$metafield = array( "metafield" => array('namespace' => 'lowerDataCol', 'key' => 'lowerData', 'value' => $metafieldData,
+	$metafield = array( "metafield" => array('namespace' => 'collectionlower', 'key' => 'lowerdata', 'value' => $metafieldData,
 	'value_type' => 'string'));
 	print_r($metafield);
 	//Collection Metafield
 	$response = $shopify('POST /admin/collections/'.$collectionid.'/metafields.json',$metafield);
-	echo $response['value'];
+	print_r($response);
 	
 }
 catch (shopify\ApiException $e)
