@@ -9,10 +9,8 @@ $metafieldData = $_REQUEST['metafieldData'];
 $shopify = shopify\client($shop, SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
-	//$metafield = array( "metafield" => array('namespace' => 'collectionlower', 'key' => 'lowerdata', 'value' => $metafieldData,
-	'value_type' => 'string'));
-	$metafield = array( "metafield" => array('namespace' => 'revisebutton', 'key' => 'seloptions', 'value' => $metafieldData,
-	'value_type' => 'string'));
+	//$metafield = array( "metafield" => array('namespace' => 'collectionlower', 'key' => 'lowerdata', 'value' => $metafieldData, value_type' => 'string'));
+	$metafield = array( "metafield" => array('namespace' => 'revisebutton', 'key' => 'seloptions', 'value' => $metafieldData, 'value_type' => 'string'));
 	print_r($metafield);
 	//Collection Metafield
 	$response = $shopify('POST /admin/collections/'.$collectionid.'/metafields.json',$metafield);
