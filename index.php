@@ -70,10 +70,8 @@ $.ajax({
 	}
 });
 $('body').on('click', '.collectionSave', function(e) {
-
-var val = $('textarea[id^="colId"]', this).val();	
-alert(val);	
-//var meta2 = $("#col-metafield2").val();
+	
+var meta2 = $("#col-metafield2")this.val();
 
 if(meta2 != '')	{
 	var colId = $(this).attr('data-id');
