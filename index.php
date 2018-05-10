@@ -75,7 +75,8 @@ $(document).ready(function(){
 		if(metafieldData != '')	{
 			$.ajax({
 			type: 'POST',
-			 url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId+'&metafieldData='+metafieldData,
+			url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId,
+			data: metafieldData,
 			success: function(response) { 
 			console.log(response);
 			}
