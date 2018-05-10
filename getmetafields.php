@@ -8,12 +8,19 @@ echo $meta2 = $_REQUEST['meta2'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {	//$shopify('POST /admin/collections/' + $collectionid + '/metafields.json',$metafield2);
-	$customresponse = $shopify('GET /admin/custom_collections' + $collectionid + '/metafields.json',$metafield2);
-	$smartresponse = $shopify('GET /admin/custom_collections' + $collectionid + '/metafields.json',$metafield2);
+	$response = $shopify('GET /admin/custom_collections' + $collectionid + '/metafields.json',$metafield2);
+	$smartresponse = $shopify('GET /admin/smart_collections' + $collectionid + '/metafields.json',$metafield2);
 	print_r($customresponse);
 	print_r($smartresponse);
 		$collectiondescription = ''; $lowercollectionmeta = '';
 		foreach($response as $meta2){
+			if($meta2['namespace'] == 'lowercollectionmeta'){
+				$lowercollectionmeta = $meta2['value'];
+			} else if($meta2['namespace'] == 'lowercollectionmeta'){
+				$lowercollectionmeta = $meta2['value'];
+			}
+		}
+	foreach($smartresponse as $meta2){
 			if($meta2['namespace'] == 'lowercollectionmeta'){
 				$lowercollectionmeta = $meta2['value'];
 			} else if($meta2['namespace'] == 'lowercollectionmeta'){
