@@ -3,14 +3,13 @@ require __DIR__.'/conf.php'; //Configuration
 require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
 $access_token = $_REQUEST['access_token'];
-$shop = $_REQUEST['shop'];
 $collectionid = $_REQUEST['collectionid'];
 $metafieldData = $_REQUEST['metafieldData'];
-$shopify = shopify\client($shop, SHOPIFY_APP_API_KEY, $access_token );
+$shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
-	//$metafield = array( "metafield" => array('namespace' => 'collectionlower', 'key' => 'lowerdata', 'value' => $metafieldData, value_type' => 'string'));
-	$metafield = array( "metafield" => array('namespace' => 'revisebutton', 'key' => 'seloptions', 'value' => $metafieldData, 'value_type' => 'string'));
+	print_r($shopify);
+	$metafield = array( "metafield" => array('namespace' => 'collectionlower', 'key' => 'lowerdata', 'value' => $metafieldData, 'value_type' => 'string'));
 	print_r($metafield);
 	//Collection Metafield
 	$response = $shopify('POST /admin/collections/'.$collectionid.'/metafields.json',$metafield);
