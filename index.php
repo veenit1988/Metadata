@@ -71,11 +71,10 @@ $.ajax({
 });
 $('body').on('click', '.collectionSave', function(e) {
 var colId = $(this).attr('data-id');	
-var meta2 = '#col-metafield2_' + colId;
-var a = document.getElementById("meta2");
-	console.log(a);
-	
-if(meta2 != '')	{
+var meta2 = '#col-metafield2_'+colId;
+console.log(meta2);
+console.log($('#col-metafield2_'+colId).attr('name'));
+/*if(meta2 != '')	{
 
 	$.ajax({
 	type: 'POST',
@@ -87,7 +86,7 @@ if(meta2 != '')	{
 	});
 } else {
   alert('Please fill collection Fields!');
-}
+}*/
 });	
 /*********************fetchdata********************************/
 function fetchMetafield(){
