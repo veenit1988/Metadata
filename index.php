@@ -71,23 +71,18 @@ $.ajax({
 });
 $('body').on('click', '.collectionSave', function(e) {
 var colId = $(this).attr('data-id');	
-var meta2 = '#col-metafield2_'+colId;
-var a = document.getElementById("meta2");
-console.log($('meta2');
-console.log($('#col-metafield2_'+colId).attr('name'));
-/*if(meta2 != '')	{
-
+var metafieldData = $('#col-metafield2_'+colId).val();
+if(metafieldData != '')	{
 	$.ajax({
 	type: 'POST',
-	 url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId+'&meta2='+meta2,
-	dataType: "html",
-	success: function(responsecollection) { 
-	console.log(responsecollection);
+	 url: '/metafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId+'&metafieldData='+metafieldData,
+	success: function(response) { 
+	console.log(response);
 	}
 	});
 } else {
   alert('Please fill collection Fields!');
-}*/
+}
 });	
 /*********************fetchdata********************************/
 function fetchMetafield(){
