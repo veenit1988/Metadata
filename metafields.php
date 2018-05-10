@@ -3,27 +3,18 @@ require __DIR__.'/conf.php'; //Configuration
 require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
 $access_token = $_REQUEST['access_token'];
+$shop = $_REQUEST['shop'];
 $collectionid = $_REQUEST['collectionid'];
-echo $meta2 = $_REQUEST['meta2'];
-$shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
+$metafieldData = $_REQUEST['metafieldData'];
+$shopify = shopify\client($shop, SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
-
-if($meta2 !== '' )
-	{
-	$metafield2 = array( "metafield" => array('namespace' => 'lowercollectionmeta', 'key' => 'lowercollectiondata', 'value' => $meta2,
+	$metafield = array( "metafield" => array('namespace' => 'lowercollectionmeta', 'key' => 'lowercollectiondata', 'value' => $metafieldData,
 	'value_type' => 'string'));
-	}	
-	else {
-	$meta2 = "noData";
-	$metafield2 = array( "metafield" => array('namespace' => 'lowercollectionmeta', 'key' => 'lowercollectiondata', 'value' => $meta2,
-	'value_type' => 'string'));
-	}
+	
 	//CustomCollection and SmartCollection
-	$response = $shopify('POST /admin/custom_collections/' + $collectionid + '/metafields.json',$metafield2);
-	//$smartresponse = $shopify('POST /admin/smart_collections/' + $collectionid + '/metafields.json',$metafield2);
+	$response = $shopify('POST /admin/collections/'.$collectionid.'/metafields.json',$metafield);
 	echo $response['value'];
-	//echo $smartresponse['value'];
 	
 }
 catch (shopify\ApiException $e)
