@@ -18,7 +18,7 @@ $smartcollection=$shopify('GET /admin/smart_collections.json');
 		echo '<tr>';
 		echo '<td>'.$Allcollections['title'].'</td>';
 		echo '<td><img src="'.$Allcollections["image"]["src"].'" alt="collectionimage" /></td>';
-		echo '<td>'.'<textarea class="form-control" id="col-metafield2" name="lowerData[]"></textarea>'.'</td>';
+		echo '<td>'.'<textarea class="form-control" id="#col-metafield2_'.$Allcollections["id"].'" name="lowerData[]"></textarea>'.'</td>';
 		echo '<td>'.'<input type="button" class="collectionSave" value="Add Collection Data" name="addColData" data-id="'.$Allcollections["id"].'"></td>';
 		echo '</tr>';
 
@@ -28,7 +28,7 @@ $smartcollection=$shopify('GET /admin/smart_collections.json');
 		echo '<tr>';
 		echo '<td>'.$smartcollections['title'].'</td>';
 		echo '<td><img src="'.$smartcollections["image"]["src"].'" alt="collectionimage" /></td>';
-		echo '<td>'.'<textarea class="form-control" id="col-metafield2" name="lowerData[]"></textarea>'.'</td>';
+		echo '<td>'.'<textarea class="form-control" id="#col-metafield2_'.$Allcollections["id"].'" name="lowerData[]"></textarea>'.'</td>';
 		echo '<td>'.'<input type="button" class="collectionSave" value="Add Collection Data" name="addColData" data-id="'.$smartcollections["id"].'"></td>';
 		echo '</tr>';
 
