@@ -11,7 +11,7 @@ try
 	$metafield = array( "metafield" => array("namespace" => "collectionlower", "key" => "lowerdata", "value" => "dvdfvfdvdf", "value_type" => "string"));
 	//Collection Metafield
 	echo json_encode($metafield);
-	$response = $shopify('POST /admin/collections/38781747260/metafields.json',$metafield);
+	$response = $shopify('POST /admin/collections/'.$collectionid.'/metafields.json',$metafield);
 	print_r($response);
 	
 }
