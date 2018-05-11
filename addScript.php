@@ -7,8 +7,8 @@ $shop = $_REQUEST['shop'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
-	$url = "/admin/script_tags.json?src=".APP_SERVER_URL."addColScript.js.liquid?access_token=$access_token";
-	$js_file = APP_SERVER_URL."addColScript.js.liquid?access_token=$access_token";
+	$url = "/admin/script_tags.json?src=".APP_SERVER_URL."addColScript.js?access_token=$access_token";
+	$js_file = APP_SERVER_URL."addColScript.js?access_token=$access_token";
 	$JSdata = $shopify("GET $url");
 	if(!$JSdata){
 		$fields = array( "script_tag" => array('event' => 'onload', 'src' => $js_file));
