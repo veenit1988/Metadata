@@ -86,10 +86,7 @@ $(document).ready(function(){
 		var metafieldData = $('#col-metafield2_'+colId).val();
 		if(metafieldData != '')	{
 			var allData = {
-			  'access_token': access_token,
-			  'shop': shop,
-			  'collectionid': colId,
-			  'metafieldData': metafieldData
+			  'access_token': access_token, 'shop': shop, 'collectionid': colId, 'metafieldData': metafieldData
 			};
 			$.ajax({
 				type: 'POST',
