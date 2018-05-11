@@ -8,9 +8,9 @@ $metafieldData = $_REQUEST['metafieldData'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
-	//$metafield = array( "metafield" => array("namespace" => "collectionlower", "key" => "lowerdata", "value" => $metafieldData, "value_type" => "string"));
+	$metafield = array( "metafield" => array("namespace" => "collectionlower", "key" => "lowerdata", "value" => $metafieldData, "value_type" => "string"));
 	//Collection Metafield
-	$jsonmetafield = json_encode($metafield);
+	echo $jsonmetafield = json_encode($metafield);
 	//$response = $shopify('POST /admin/collections/'.$collectionid.'/metafields.json',$metafield);
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
