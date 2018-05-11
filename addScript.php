@@ -12,7 +12,9 @@ try
 	$themes = $shopify("GET /admin/themes.json");
 	foreach($themes as $theme) {
 	  if($theme['role'] == 'main') {
-	    echo $theme['id'];
+	    $themeId = $theme['id'];
+	    $collectionTemplate = $shopify("GET /admin/themes/$themeId/assets.json?asset[key]=templates/collection.liquid&theme_id=$themeId");
+	    print_r($collectionTemplate);
 	  }
 	}
 	echo 'Get JS data';
