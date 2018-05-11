@@ -3,7 +3,7 @@ require __DIR__.'/conf.php'; //Configuration
 require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
 $access_token = $_REQUEST['access_token'];
-$shop = $_REQUEST['shop']
+echo $shop = $_REQUEST['shop']
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
@@ -36,8 +36,6 @@ try
 		echo $response;
 		echo 'JS file Created!';
 		}
-		
-		
 	} else {
 		print_r($JSdata);
 		print_r('Already exist JS file');
