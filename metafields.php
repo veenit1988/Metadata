@@ -8,10 +8,37 @@ $metafieldData = $_REQUEST['metafieldData'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
-	$metafield = array( "metafield" => array("namespace" => "collectionlower", "key" => "lowerdata", "value" => $metafieldData, "value_type" => "string"));
+	//$metafield = array( "metafield" => array("namespace" => "collectionlower", "key" => "lowerdata", "value" => $metafieldData, "value_type" => "string"));
 	//Collection Metafield
-	$response = $shopify('POST /admin/collections/'.$collectionid.'/metafields.json',$metafield);
-	print_r($response);
+	$jsonmetafield = json_encode($metafield);
+	//$response = $shopify('POST /admin/collections/'.$collectionid.'/metafields.json',$metafield);
+	
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+	  CURLOPT_URL => $_REQUEST['shop'].'/admin/collections/'.$collectionid.'/metafields.json',
+	  CURLOPT_RETURNTRANSFER => true,
+	  CURLOPT_ENCODING => "",
+	  CURLOPT_MAXREDIRS => 10,
+	  CURLOPT_TIMEOUT => 30,
+	  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	  CURLOPT_CUSTOMREQUEST => "POST",
+	  CURLOPT_POSTFIELDS => $jsonmetafield,
+	  CURLOPT_HTTPHEADER => array(
+	    "cache-control: no-cache",
+	    "content-type: application/json",
+	    "x-shopify-access-token: $access_token"
+	  ),
+	));
+
+	$response = curl_exec($curl);
+	$err = curl_error($curl);
+	curl_close($curl);
+	if ($err) {
+	  echo "cURL Error #:" . $err;
+	} else {
+	  echo $response;
+	}
+	
 	
 }
 catch (shopify\ApiException $e)
