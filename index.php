@@ -93,6 +93,7 @@ $(document).ready(function(){
 				  alert(response);
 				},
 				complete: function() {
+				  fetchColmetafield(access_token,shop);
 				  editColTemplate(access_token,shop);
 				}
 			});
