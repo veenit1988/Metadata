@@ -34,11 +34,12 @@ div#collection_container tbody tr td img {
 }
 div#collection_container tbody tr td input.collectionSave {
     text-align: center;
-    float: left;
-    width: 100%;
-    padding: 6px 0px;
-    border-radius: 10px; 
+    width: 50%;
+    padding: 12px 0px;
+    border-radius: 10px;
     font-size: 14px;
+    background-image: linear-gradient(-180deg, #2b8840 0%, #29843e 90%);
+    color: #fff;
 }
 div#collection_container tbody tr td input.collectionSave:hover {
     color: #fff;
