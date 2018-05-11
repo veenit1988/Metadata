@@ -60,7 +60,7 @@ function fetchColmetafield(access_token,shop){
 		    _this.find('textarea').val(response);
 		},
 		complete: function() {
-		  addScript(access_token,shop);
+		 // addScript(access_token,shop);
 		}
 	   });
 	});
