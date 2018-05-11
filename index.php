@@ -9,13 +9,11 @@ use phpish\shopify;
 // Required File END...........
 error_reporting(E_ALL); 
 ini_set('display_errors', 1);
+echo $server = 'https://'.$_SERVER['SERVER_NAME'];
 if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']!='' && $_REQUEST['code']!='' )
 {
-	$_SESSION['shop']=$_REQUEST['shop'];
-	$_SESSION['code']=$_REQUEST['code'];
+   $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_REQUEST['code']);
 }
-$access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_REQUEST['code']);
-$server = 'https://'.$_SERVER['SERVER_NAME'];
 ?>
 <html>
 <head>
