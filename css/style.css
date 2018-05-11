@@ -21,3 +21,7 @@ div#collection_container thead tr th {
     padding: 8px 40px;
     font-size: 16px;
 }
+div#collection_container tbody tr td img {
+    width: 50px;
+    height: auto;
+}
