@@ -7,8 +7,12 @@ $collectionid = $_REQUEST['collectionid'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {		
-		$response = $shopify('GET /admin/collections/'.$collectionid.'/metafields.json');
-		print_r($response);
+	$response = $shopify('GET /admin/collections/'.$collectionid.'/metafields.json');
+	foreach($response as $options){
+		if($options['namespace'] == 'collectionlower' && $options['key'] == 'lowerdata'){
+			echo $options['value'];
+		}
+	}    
 }
 catch (shopify\ApiException $e)
 {
