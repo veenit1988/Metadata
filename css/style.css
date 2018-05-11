@@ -52,3 +52,6 @@ div#collection_container tbody tr td input.collectionSave:hover {
 div#collection_container table {
     background: #f9f9f9;
 }
+.content-container h1.title {
+    font-size: 22px;
+}
