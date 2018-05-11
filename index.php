@@ -109,7 +109,7 @@ function fetchColmetafield(access_token,shop){
 		url: '/getmetafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId,
 		success: function(response){
 		    console.log(response);
-		    _this.find('input[name="lowerData[]"]').val(response);
+		    _this.find('textarea').val(response);
 		}
 	   });
 	});
