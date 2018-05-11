@@ -99,11 +99,9 @@ $(document).ready(function(){
 });	
 
 function fetchColmetafield(access_token,shop){
-	alert('fetchColmetafield');
 	$('#collection_container table tbody tr').each(function(){
 	   var _this = $(this);
 	   var colId = $('.collectionSave',this).attr('data-id');
-	   alert(colId);
 	   $.ajax({
 		type: 'GET',
 		url: '/getmetafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId,
