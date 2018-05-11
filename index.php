@@ -41,7 +41,6 @@ $server = 'https://'.$_SERVER['SERVER_NAME'];
 <script>
 // Add Script
 function addScript(access_token,shop){
-	alert(2);
 	$.ajax({
 		url: '/addScript.php?access_token='+access_token+'&shop='+shop,
 		success: function(response){
@@ -61,7 +60,6 @@ function fetchColmetafield(access_token,shop){
 		    _this.find('textarea').val(response);
 		},
 		complete: function() {
-		alert(1);
 		  addScript(access_token,shop);
 		}
 	   });
