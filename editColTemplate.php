@@ -4,6 +4,7 @@ require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
 $access_token = $_REQUEST['access_token'];
 echo $shop = $_REQUEST['shop'];
+/*
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
@@ -51,5 +52,5 @@ catch (shopify\ApiException $e)
 	echo $e;
 	print_r($e->getRequest());
 	print_r($e->getResponse());
-}
+}*/
 ?>
