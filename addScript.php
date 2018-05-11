@@ -12,12 +12,32 @@ try
 	$themes = $shopify("GET /admin/themes.json");
 	foreach($themes as $theme) {
 	  if($theme['role'] == 'main') {
-	    $themeId = $theme['id'];
-	    $collectionTemplate = $shopify("GET /admin/themes/$themeId/assets.json?asset[key]=templates/collection.liquid&theme_id=$themeId");
-	    $colMeta = $collectionTemplate['value'].'<p class="testtt">{{ collection.metafields.collectionlower.lowerdata }}</p>';
-	    $fields = array( "asset" => array('key' => 'templates/collection.liquid', 'value' => $colMeta));
-            $modifyColTemplate = $shopify("PUT /admin/themes/$themeId/assets.json");
-            print_r($modifyColTemplate);
+	       $themeId = $theme['id'];
+	       $collectionTemplate = $shopify("GET /admin/themes/$themeId/assets.json?asset[key]=templates/collection.liquid&theme_id=$themeId");
+	       $colMeta = $collectionTemplate['value'].'<p class="testtt">{{ collection.metafields.collectionlower.lowerdata }}</p>';
+	       $fields = array( "asset" => array('key' => 'templates/collection.liquid', 'value' => $colMeta));
+	       $jsonfields = json_encode($fields);
+               //$modifyColTemplate = $shopify("PUT /admin/themes/$themeId/assets.json");
+	       $curl = curl_init();
+		curl_setopt_array($curl, array(
+			CURLOPT_URL => "https://$shop/admin/themes/$themeId/assets.json",
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_CUSTOMREQUEST => "PUT",
+			CURLOPT_POSTFIELDS => $jsonfields,
+			CURLOPT_HTTPHEADER => array(
+				"cache-control: no-cache",
+				"content-type: application/json",
+				"x-shopify-access-token: $access_token"
+			),
+		));
+		$response = curl_exec($curl);
+		$err = curl_error($curl);
+		curl_close($curl);
+		if ($err) {
+		echo "cURL Error #:" . $err;
+		} else {
+		echo $response;
+		}
 	  }
 	}
 	echo 'Get JS data';
