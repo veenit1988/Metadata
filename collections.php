@@ -7,20 +7,19 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 try
 {     
 $collections = $shopify('GET /admin/custom_collections.json');
-$smartcollection=$shopify('GET /admin/smart_collections.json'); 
+$smartcollection= $shopify('GET /admin/smart_collections.json'); 
 	if($collections){
 	echo '<form method="post" name="form" id="getcollection" action="#">';
 	echo '<table cellspacing="10" cellpadding="10" border="1">';
-	echo '<thead><tr><th>Collection Name</th><th>Image</th><th>upperData</th><th>Action</th></tr></thead>';
+	echo '<thead><tr><th>Collection</th><th>Collection bottom content</th><th>Action</th></tr></thead>';
 		echo '<tbody>';
 	foreach($collections as $Allcollections)
 	{	
 		$colId = $Allcollections["id"];
 		echo '<tr>';
-		echo '<td>'.$Allcollections['title'].'</td>';
-		echo '<td><img src="'.$Allcollections["image"]["src"].'" alt="collectionimage" /></td>';
+		echo '<td><img src="'.$Allcollections["image"]["src"].'" alt="collectionimage" />'.$Allcollections['title'].'</td>';
 		echo '<td>'.'<textarea class="form-control" id="col-metafield2_'.$colId.'" name="lowerData[]"></textarea>'.'</td>';
-		echo '<td>'.'<input type="button" class="collectionSave" value="Add Collection Data" name="addColData" data-id="'.$colId.'"></td>';
+		echo '<td>'.'<input type="button" class="collectionSave" value="Save" name="addColData" data-id="'.$colId.'"></td>';
 		echo '</tr>';
 
 		}
@@ -28,10 +27,9 @@ $smartcollection=$shopify('GET /admin/smart_collections.json');
 	{
 		$colId = $smartcollections["id"];
 		echo '<tr>';
-		echo '<td>'.$smartcollections['title'].'</td>';
-		echo '<td><img src="'.$smartcollections["image"]["src"].'" alt="collectionimage" /></td>';
+		echo '<td><img src="'.$smartcollections["image"]["src"].'" alt="collectionimage" />'.$smartcollections['title'].'</td>';
 		echo '<td>'.'<textarea class="form-control" id="col-metafield2_'.$colId.'" name="lowerData[]"></textarea>'.'</td>';
-		echo '<td>'.'<input type="button" class="collectionSave" value="Add Collection Data" name="addColData" data-id="'.$colId.'"></td>';
+		echo '<td>'.'<input type="button" class="collectionSave" value="Save" name="addColData" data-id="'.$colId.'"></td>';
 		echo '</tr>';
 
 		}	
