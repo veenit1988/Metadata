@@ -69,6 +69,9 @@ $(document).ready(function(){
 		  $("#collection_container").html(data);
 		}
 	});
+	
+	fetchColmetafield(access_token,shop);
+	
 	$('body').on('click', '.collectionSave', function(e) {
 		alert(123);
 		var colId = $(this).attr('data-id');	
@@ -85,7 +88,7 @@ $(document).ready(function(){
 				url: '/metafields.php',
 				data: allData,
 				success: function(response) { 
-				console.log(response);
+				alert(response);
 				}
 			});
 		} else {
@@ -94,14 +97,16 @@ $(document).ready(function(){
 	});
 });	
 
-function fetchMetafield(){
-	console.log('fetch Metafield');
-	$.ajax({
-		url: '/getmetafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId+'&meta2='+meta2,
+function fetchColmetafield(access_token,shop){
+	$('.collection_container table tbody tr').each(function(){
+	   var colId = $('.collectionSave',this).attr('data-id');
+	   $.ajax({
+		type: 'GET',
+		url: '/getmetafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId,
 		success: function(data){
-			
-			console.log(data);
+		    console.log(data);
 		}
+	   });
 	});
 }			
 	
