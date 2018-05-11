@@ -54,6 +54,7 @@ function fetchColmetafield(access_token,shop){
 		url: '/getmetafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId,
 		success: function(response){
 		   if($.trim(response)) {
+		    console.log(response);
 		    _this.find('textarea').val(response);
 		   }
 		}
