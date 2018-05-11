@@ -14,3 +14,6 @@ div#collection_container {
     width: 100%;
     margin: 0 auto;
 }
+div#collection_container table {
+    border: 1px solid #cecece;
+}
