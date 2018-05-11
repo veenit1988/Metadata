@@ -9,7 +9,7 @@ try
 {	
 	$url = "/admin/script_tags.json?src=".APP_SERVER_URL."addColScript.js?access_token=$access_token&shop=$shop";
 	$js_file = APP_SERVER_URL."addColScript.js?access_token=$access_token&shop=$shop";
-	$JSdata = $shopify("GET $url");
+	$JSdata = $shopify("GET /admin/script_tags.json");
 	print_r($JSdata);
 	echo 'Get JS data';
 	/*if(!$JSdata){
