@@ -39,7 +39,7 @@ div#collection_container tbody tr td input.collectionSave {
     font-size: 14px;
 }
 div#collection_container tbody tr td input.collectionSave:hover {
-    background: #404040;
+    background: #aae23f;
     color: #fff;
 }
 .logo h2 {
