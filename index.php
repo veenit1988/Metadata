@@ -40,21 +40,30 @@ $server = 'https://'.$_SERVER['SERVER_NAME'];
 </div> 
 <script>
 // Add Script
-function addScript(options){
-var access_token = '<?php echo $access_token ?>';
-var shop = '<?php echo $_REQUEST['shop'] ?>';
-var server = '<?php echo $_SERVER['SERVER_NAME']; ?>';
-$.ajax({
-	url: '/addScript.php?access_token='+access_token+'&shop='+shop+'&options='+options+'&server='+server,
-	success: function(data){
-		console.log(data);
-		if($("#manual_code").is(':checked')){
-			$('#generate_code').show().val(data);
-		} else if($("#automatic_code").is(':checked')){
-			$('#generate_code').hide().val(" ");
+function addScript(access_token,shop,server){
+	$.ajax({
+		url: '/addScript.php?access_token='+access_token+'&shop='+shop+'&server='+server,
+		success: function(response){
+			console.log(response);
 		}
-	}
-});
+	});
+}
+// Fetch Collection Metafield data	
+function fetchColmetafield(access_token,shop,server){
+	$('#collection_container table tbody tr').each(function(){
+	   var _this = $(this);
+	   var colId = $('.collectionSave',this).attr('data-id');
+	   $.ajax({
+		type: 'GET',
+		url: '/getmetafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId,
+		success: function(response){
+		    _this.find('textarea').val(response);
+		},
+		comeplete: function() {
+		  addScript(access_token,shop,server);
+		}
+	   });
+	});
 }	
 
 $(document).ready(function(){
@@ -69,12 +78,11 @@ $(document).ready(function(){
 		  $("#collection_container").html(response);
 		},
 		complete: function() {
-		  fetchColmetafield(access_token,shop);
+		  fetchColmetafield(access_token,shop,server);
 		}
 	});
 
 	$('body').on('click', '.collectionSave', function(e) {
-		alert(123);
 		var colId = $(this).attr('data-id');	
 		var metafieldData = $('#col-metafield2_'+colId).val();
 		if(metafieldData != '')	{
@@ -96,23 +104,7 @@ $(document).ready(function(){
 		  alert('Please fill collection Fields!');
 		}
 	});
-});	
-
-function fetchColmetafield(access_token,shop){
-	$('#collection_container table tbody tr').each(function(){
-	   var _this = $(this);
-	   var colId = $('.collectionSave',this).attr('data-id');
-	   $.ajax({
-		type: 'GET',
-		url: '/getmetafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId,
-		success: function(response){
-		    console.log(response);
-		    _this.find('textarea').val(response);
-		}
-	   });
-	});
-}			
-	
+});		
 </script>	
 
 </body>
