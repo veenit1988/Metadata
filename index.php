@@ -37,10 +37,10 @@ if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']
 <script>
 // Add Script
 function editColTemplate(access_token,shop){
-	alert(12);
 	$.ajax({
 		url: '/editColTemplate.php?access_token='+access_token+'&shop='+shop,
 		success: function(response){
+			alert(123);
 			console.log(response);
 		}
 	});
