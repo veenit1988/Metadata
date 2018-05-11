@@ -55,7 +55,8 @@ function fetchColmetafield(access_token,shop){
 		success: function(response){
 		   if($.trim(response)) {
 		    console.log(response);
-		    _this.find('textarea').html(response);
+		    _this.find('textarea').val().replace(/\n/g, response);
+		    //_this.find('textarea').val(response);
 		   }
 		}
 	   });
