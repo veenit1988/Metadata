@@ -53,7 +53,9 @@ function fetchColmetafield(access_token,shop){
 		type: 'GET',
 		url: '/getmetafields.php?access_token='+access_token+'&shop='+shop+'&collectionid='+colId,
 		success: function(response){
+		   if($.trim(response)) {
 		    _this.find('textarea').val(response);
+		   }
 		}
 	   });
 	});
