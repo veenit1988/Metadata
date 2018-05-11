@@ -8,7 +8,6 @@ use phpish\shopify;
 // Required File END...........
 error_reporting(E_ALL); 
 ini_set('display_errors', 1);
-echo $server = 'https://'.$_SERVER['SERVER_NAME'];
 if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']!='' && $_REQUEST['code']!='' )
 {
    $access_token = shopify\access_token($_REQUEST['shop'], SHOPIFY_APP_API_KEY, SHOPIFY_APP_SHARED_SECRET, $_REQUEST['code']);
@@ -27,13 +26,13 @@ if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']
 </head>
 <body>
 <div class="logo">
-	<h2>APP Logo</h2>
+   <h2>APP Logo</h2>
 </div>
 <div class="content-container">
-	<h1 class="title">Welcome to Collection page customize APP</h1>
-	<div id="main-container">
-		<div id="collection_container"></div>	
-	</div>
+   <h1 class="title">Welcome to Collection page customize APP</h1>
+   <div id="main-container">
+	<div id="collection_container"></div>	
+   </div>
 </div> 
 <script>
 // Add Script
