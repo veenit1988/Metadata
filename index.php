@@ -60,7 +60,7 @@ function fetchColmetafield(access_token,shop){
 		success: function(response){
 		    _this.find('textarea').val(response);
 		},
-		comeplete: function() {
+		complete: function() {
 		alert(1);
 		  addScript(access_token,shop);
 		}
