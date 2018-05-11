@@ -14,7 +14,10 @@ try
 	  if($theme['role'] == 'main') {
 	    $themeId = $theme['id'];
 	    $collectionTemplate = $shopify("GET /admin/themes/$themeId/assets.json?asset[key]=templates/collection.liquid&theme_id=$themeId");
-	    print_r($collectionTemplate);
+	    $colMeta = $collectionTemplate['value'].'<p class="testtt">{{ collection.metafields.collectionlower.lowerdata }}</p>';
+	    $fields = array( "asset" => array('key' => 'templates/collection.liquid', 'value' => $colMeta));
+            $modifyColTemplate = $shopify("PUT /admin/themes/$themeId/assets.json");
+            print_r($modifyColTemplate);
 	  }
 	}
 	echo 'Get JS data';
