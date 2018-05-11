@@ -6,13 +6,13 @@ $access_token = $_REQUEST['access_token'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
-	$url = "/admin/script_tags.json?src=".APP_SERVER_URL."addColScript.js?access_token=$access_token";
-	$js_file = APP_SERVER_URL."addColScript.js?access_token=$access_token";
+	echo $url = "/admin/script_tags.json?src=".APP_SERVER_URL."addColScript.js?access_token=$access_token";
+	echo $js_file = APP_SERVER_URL."addColScript.js?access_token=$access_token";
 	$data = $shopify("GET $url");
 	if(!$data){
 		$fields = array( "script_tag" => array('event' => 'onload', 'src' => $js_file));
 		$response = $shopify('POST /admin/script_tags.json',$fields);
-		//print_r($response);
+		print_r($response);
 		print_r('Add JS file');
 	} else {
 		//print_r($data);
