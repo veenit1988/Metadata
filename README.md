@@ -1,1 +1,1 @@
-# reviseApp
+# Collection Page customization
