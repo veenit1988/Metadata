@@ -11,7 +11,6 @@ h1.title {
     font-size: 22px;
 }
 div#collection_container {
-    max-width: 580px;
     width: 100%;
     margin: 0 auto;
 }
