@@ -15,9 +15,10 @@ $smartcollection= $shopify('GET /admin/smart_collections.json');
 		echo '<tbody>';
 	foreach($collections as $Allcollections)
 	{	
+		echo '<pre>'; print_r($Allcollections); echo '</pre>';
 		$colId = $Allcollections["id"];
 		echo '<tr>';
-		echo '<td><img src="'.$Allcollections["image"]["src"].'" alt="collectionimage" />'.$Allcollections['title'].'</td>';
+		echo '<td><img src="'.$Allcollections["image"]["src"].'" alt="collectionimage" /><p class="col-title">'.$Allcollections['title'].'</p></td>';
 		echo '<td>'.'<textarea class="form-control" id="col-metafield2_'.$colId.'" name="lowerData[]"></textarea>'.'</td>';
 		echo '<td>'.'<input type="button" class="collectionSave" value="Save" name="addColData" data-id="'.$colId.'"></td>';
 		echo '</tr>';
@@ -27,7 +28,7 @@ $smartcollection= $shopify('GET /admin/smart_collections.json');
 	{
 		$colId = $smartcollections["id"];
 		echo '<tr>';
-		echo '<td><img src="'.$smartcollections["image"]["src"].'" alt="collectionimage" />'.$smartcollections['title'].'</td>';
+		echo '<td><img src="'.$smartcollections["image"]["src"].'" alt="collectionimage" /><p class="col-title">'.$smartcollections['title'].'</p></td>';
 		echo '<td>'.'<textarea class="form-control" id="col-metafield2_'.$colId.'" name="lowerData[]"></textarea>'.'</td>';
 		echo '<td>'.'<input type="button" class="collectionSave" value="Save" name="addColData" data-id="'.$colId.'"></td>';
 		echo '</tr>';
