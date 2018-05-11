@@ -65,13 +65,14 @@ $(document).ready(function(){
 		type: 'POST',
 		url: '/collections.php?access_token='+access_token+'&shop='+shop,
 		dataType: "html",
-		success: function(data) { 
-		  $("#collection_container").html(data);
+		success: function(response) { 
+		  $("#collection_container").html(response);
+		},
+		complete: function() {
+		  fetchColmetafield(access_token,shop);
 		}
 	});
-	
-	fetchColmetafield(access_token,shop);
-	
+
 	$('body').on('click', '.collectionSave', function(e) {
 		alert(123);
 		var colId = $(this).attr('data-id');	
