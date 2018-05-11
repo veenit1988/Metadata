@@ -9,8 +9,7 @@ $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token 
 try
 {	
 	$metafield = array( "metafield" => array("namespace" => "collectionlower", "key" => "lowerdata", "value" => $metafieldData, "value_type" => "string"));
-	//Collection Metafield
-	echo $jsonmetafield = json_encode($metafield);
+	$jsonmetafield = json_encode($metafield);
 	//$response = $shopify('POST /admin/collections/'.$collectionid.'/metafields.json',$metafield);
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
@@ -33,8 +32,6 @@ try
 	} else {
 	  echo $response;
 	}
-	
-	
 }
 catch (shopify\ApiException $e)
 {
