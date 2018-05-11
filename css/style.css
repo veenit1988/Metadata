@@ -41,6 +41,7 @@ div#collection_container tbody tr td input.collectionSave {
     font-size: 14px;
     background-image: linear-gradient(-180deg, #2b8840 0%, #29843e 90%);
     color: #fff;
+    border: none;
 }
 div#collection_container tbody tr td input.collectionSave:hover {
     color: #fff;
