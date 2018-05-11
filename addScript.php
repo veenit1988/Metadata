@@ -7,10 +7,10 @@ $shop = $_REQUEST['shop'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
-	$url = "/admin/script_tags.json?src=".APP_SERVER_URL."addColScript.js?access_token=$access_token&shop=$shop";
-	$js_file = APP_SERVER_URL."addColScript.js?access_token=$access_token&shop=$shop";
-	$JSdata = $shopify("GET /admin/script_tags.json");
-	print_r($JSdata);
+	//$url = "/admin/script_tags.json?src=".APP_SERVER_URL."addColScript.js?access_token=$access_token&shop=$shop";
+	//$js_file = APP_SERVER_URL."addColScript.js?access_token=$access_token&shop=$shop";
+	$themes = $shopify("GET /admin/themes.json");
+	print_r($themes);
 	echo 'Get JS data';
 	/*if(!$JSdata){
 		$fields = array( "script_tag" => array('event' => 'onload', 'src' => $js_file));
