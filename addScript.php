@@ -10,7 +10,11 @@ try
 	//$url = "/admin/script_tags.json?src=".APP_SERVER_URL."addColScript.js?access_token=$access_token&shop=$shop";
 	//$js_file = APP_SERVER_URL."addColScript.js?access_token=$access_token&shop=$shop";
 	$themes = $shopify("GET /admin/themes.json");
-	print_r($themes);
+	foreach($themes as $theme) {
+	  if($theme['role'] == 'main') {
+	    echo $theme['id'];
+	  }
+	}
 	echo 'Get JS data';
 	/*if(!$JSdata){
 		$fields = array( "script_tag" => array('event' => 'onload', 'src' => $js_file));
