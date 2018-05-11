@@ -79,9 +79,11 @@ $(document).ready(function(){
 	});
 
 	$('body').on('click', '.collectionSave', function(e) {
-		var colId = $(this).attr('data-id');	
+		var colId = $(this).attr('data-id');
+		var _this = $(this);
 		var metafieldData = $('#col-metafield2_'+colId).val();
 		if(metafieldData != '')	{
+			$(this).val('Saving...');
 			var allData = {
 			  'access_token': access_token, 'shop': shop, 'collectionid': colId, 'metafieldData': metafieldData
 			};
@@ -90,7 +92,8 @@ $(document).ready(function(){
 				url: '/metafields.php',
 				data: allData,
 				success: function(response) { 
-				  alert(response);
+				  console.log(response);
+				  setTimeout(function(){ _this.val('Save'); }, 1000);
 				},
 				complete: function() {
 				  //fetchColmetafield(access_token,shop);
