@@ -28,9 +28,11 @@ try
 	$err = curl_error($curl);
 	curl_close($curl);
 	if ($err) {
-	  echo "cURL Error #:" . $err;
+	  //echo "cURL Error #:" . $err;
+	  echo 'Try again Later!';
 	} else {
-	  echo $response;
+	  //echo $response;
+	  echo 'Collection data Saved!';
 	}
 }
 catch (shopify\ApiException $e)
