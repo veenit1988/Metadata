@@ -3,7 +3,6 @@
 session_start();
 // Required File Start.........
 require __DIR__.'/conf.php'; //Configuration
-require __DIR__.'/connection.php'; //DB connectivity
 require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
 // Required File END...........
@@ -36,7 +35,7 @@ if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']
 		<div id="collection_container"></div>	
 	</div>
 </div> 
-<!--script>
+<script>
 // Add Script
 function addScript(access_token,shop){
 	$.ajax({
@@ -99,7 +98,7 @@ $(document).ready(function(){
 		}
 	});
 });		
-</script-->	
+</script>	
 
 </body>
 </html>
