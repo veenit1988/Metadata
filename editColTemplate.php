@@ -2,12 +2,15 @@
 require __DIR__.'/conf.php'; //Configuration
 require __DIR__.'/vendor/autoload.php';
 use phpish\shopify;
+error_reporting(E_ALL); 
+ini_set('display_errors', 1);
 $access_token = $_REQUEST['access_token'];
 echo $shop = $_REQUEST['shop'];
 $shopify = shopify\client($_REQUEST['shop'], SHOPIFY_APP_API_KEY, $access_token );
 try
 {	
 	$themes = $shopify("GET /admin/themes.json");
+	print_r($themes);
 	foreach($themes as $theme) {
 	  if($theme['role'] == 'main') {
 	     $themeId = $theme['id'];
