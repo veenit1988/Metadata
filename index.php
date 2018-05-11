@@ -40,16 +40,17 @@ $server = 'https://'.$_SERVER['SERVER_NAME'];
 </div> 
 <script>
 // Add Script
-function addScript(access_token,shop,server){
+function addScript(access_token,shop){
+	alert(2);
 	$.ajax({
-		url: '/addScript.php?access_token='+access_token+'&shop='+shop+'&server='+server,
+		url: '/addScript.php?access_token='+access_token+'&shop='+shop,
 		success: function(response){
 			console.log(response);
 		}
 	});
 }
 // Fetch Collection Metafield data	
-function fetchColmetafield(access_token,shop,server){
+function fetchColmetafield(access_token,shop){
 	$('#collection_container table tbody tr').each(function(){
 	   var _this = $(this);
 	   var colId = $('.collectionSave',this).attr('data-id');
@@ -60,7 +61,8 @@ function fetchColmetafield(access_token,shop,server){
 		    _this.find('textarea').val(response);
 		},
 		comeplete: function() {
-		  addScript(access_token,shop,server);
+		alert(1);
+		  addScript(access_token,shop);
 		}
 	   });
 	});
@@ -69,7 +71,6 @@ function fetchColmetafield(access_token,shop,server){
 $(document).ready(function(){
 	var access_token = '<?php echo $access_token ?>';
 	var shop = '<?php echo $_REQUEST['shop'] ?>';
-	var server = '<?php echo $_SERVER['SERVER_NAME']; ?>';
 	$.ajax({
 		type: 'POST',
 		url: '/collections.php?access_token='+access_token+'&shop='+shop,
@@ -78,7 +79,7 @@ $(document).ready(function(){
 		  $("#collection_container").html(response);
 		},
 		complete: function() {
-		  fetchColmetafield(access_token,shop,server);
+		  fetchColmetafield(access_token,shop);
 		}
 	});
 
