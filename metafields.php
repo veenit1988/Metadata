@@ -12,7 +12,7 @@ try
 	//Collection Metafield
 	$jsonmetafield = json_encode($metafield);
 	//$response = $shopify('POST /admin/collections/'.$collectionid.'/metafields.json',$metafield);
-	
+	echo $_REQUEST['shop'].'/admin/collections/'.$collectionid.'/metafields.json';
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
 	  CURLOPT_URL => $_REQUEST['shop'].'/admin/collections/'.$collectionid.'/metafields.json',
