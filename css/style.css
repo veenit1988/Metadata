@@ -56,4 +56,7 @@ div#collection_container tbody td p.col-title {
     width: 100%;
     color: #404040;
 }
+div#collection_container textarea.form-control {
+    min-height: 140px;
+}
 
