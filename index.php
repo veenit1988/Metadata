@@ -100,7 +100,7 @@ $(document).ready(function(){
 
 function fetchColmetafield(access_token,shop){
 	alert('fetchColmetafield');
-	$('body .collection_container table tbody tr').each(function(){
+	$('#collection_container table tbody tr').each(function(){
 	   var colId = $('.collectionSave',this).attr('data-id');
 	   alert(colId);
 	   $.ajax({
