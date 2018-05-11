@@ -53,6 +53,7 @@ div#collection_container tbody tr td input.collectionSave:hover {
 }
 div#collection_container table {
     background: #f9f9f9;
+    width: 100%;
 }
 div#collection_container tbody td p.col-title {
     margin: 8px 0;
