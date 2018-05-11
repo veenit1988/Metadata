@@ -12,9 +12,10 @@ try
 	$themes = $shopify("GET /admin/themes.json");
 	foreach($themes as $theme) {
 	  if($theme['role'] == 'main') {
-	       $themeId = $theme['id'];
-	       $collectionTemplate = $shopify("GET /admin/themes/$themeId/assets.json?asset[key]=templates/collection.liquid&theme_id=$themeId");
-	       $colMeta = $collectionTemplate['value'].'<p class="testtt">{{ collection.metafields.collectionlower.lowerdata }}</p>';
+	     $themeId = $theme['id'];
+	     $collectionTemplate = $shopify("GET /admin/themes/$themeId/assets.json?asset[key]=templates/collection.liquid&theme_id=$themeId");
+	     if (strpos($collectionTemplate['value'], '{{ collection.metafields.collectionlower.lowerdata }}') === false) {
+	       $colMeta = $collectionTemplate['value'].'{{ collection.metafields.collectionlower.lowerdata }}';
 	       $fields = array( "asset" => array('key' => 'templates/collection.liquid', 'value' => $colMeta));
 	       $jsonfields = json_encode($fields);
                //$modifyColTemplate = $shopify("PUT /admin/themes/$themeId/assets.json");
@@ -38,6 +39,7 @@ try
 		} else {
 		echo $response;
 		}
+	       }
 	  }
 	}
 	echo 'Get JS data';
