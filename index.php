@@ -36,9 +36,9 @@ if((isset($_REQUEST['shop'])) && (isset($_REQUEST['code'])) && $_REQUEST['shop']
 </div> 
 <script>
 // Add Script
-function addScript(access_token,shop){
+function editColTemplate(access_token,shop){
 	$.ajax({
-		url: '/addScript.php?access_token='+access_token+'&shop='+shop,
+		url: '/editColTemplate.php?access_token='+access_token+'&shop='+shop,
 		success: function(response){
 			console.log(response);
 		}
@@ -71,7 +71,7 @@ $(document).ready(function(){
 		},
 		complete: function() {
 		  fetchColmetafield(access_token,shop);
-		  addScript(access_token,shop);
+		  editColTemplate(access_token,shop);
 		}
 	});
 
@@ -87,7 +87,10 @@ $(document).ready(function(){
 				url: '/metafields.php',
 				data: allData,
 				success: function(response) { 
-				alert(response);
+				  alert(response);
+				},
+				complete: function() {
+				  editColTemplate(access_token,shop);
 				}
 			});
 		} else {
